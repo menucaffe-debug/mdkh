@@ -47,7 +47,7 @@
         .sti{font-family:'Amiri',serif;font-size:2.8rem;font-weight:600;font-style:italic;background:linear-gradient(135deg,var(--espresso),var(--gold-d));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:4px;margin-bottom:8px}        .sta{font-family:'Cairo',sans-serif;font-size:.9rem;font-weight:700;color:var(--gold-s);letter-spacing:5px;margin-bottom:18px;text-transform:uppercase}
         .so{display:flex;align-items:center;justify-content:center;gap:14px}.sol{width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}.sod{width:8px;height:8px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;box-shadow:0 0 10px rgba(160,120,69,.4)}
         
-        .sec-desc{grid-column:1/-1;text-align:center;margin:5px auto 40px;max-width:90%;opacity:0;transform:translateY(10px);7animation:hI .8s ease forwards .2s}
+        .sec-desc{grid-column:1/-1;text-align:center;margin:5px auto 40px;max-width:90%;opacity:0;transform:translateY(10px);animation:hI .8s ease forwards .2s}
         .sec-desc span{display:inline-block;font-family:'Cairo',sans-serif;font-size:.9rem;font-weight:600;color:var(--espresso);background:linear-gradient(135deg,rgba(160,120,69,.08),rgba(160,120,69,.03));border:1px solid rgba(160,120,69,.2);padding:14px 32px;border-radius:50px;box-shadow:0 5px 20px rgba(160,120,69,.08);line-height:1.6;letter-spacing:.5px}
         .sec-desc span::before,.sec-desc span::after{content:'✦';color:var(--gold);font-size:.7rem;margin:0 10px;vertical-align:middle}
         
@@ -179,7 +179,6 @@
     <div class="hero-g"></div>
     <div class="cbox">
         <div class="mg">KH</div>
-        <div class="yr">EST. 2025</div>
         <div class="itd"></div>
         <div class="hero-tagline">IL VOSTRO CAFFE & DOLCE</div>
     </div>
@@ -225,7 +224,7 @@
             <h4>تواصل معنا</h4>
             <a href="tel:0914041333" class="mft-phone">091 404 1333</a>
             <a href="https://wa.me/218914041333" target="_blank" class="mft-call-btn">
-                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.693.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-D1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.693.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                 اطلب الآن عبر واتساب
             </a>
             <div class="mft-social">
@@ -280,45 +279,185 @@ addEventListener('resize',()=>{rsC();iP()});rsC();iP();aB();
 const SC={hotcoffee:{it:'Caffè e Tè Caldo',ar:'قهوة وشاي ساخن'},coldcoffee:{it:'Caffè e Tè Freddo',ar:'قهوة وشاي بارد'},juices:{it:'Succi',ar:'العصائر'},tropical:{it:'Tropical',ar:'تروبيكال',desc:'اختر مشروبك، وفوقه فواكه طازجة أو بانكيك.'},smoothieshake:{it:'Frullati e Milkshake',ar:'سموثي وميلك شيك'},mojito:{it:'Mojito',ar:'الموخيتو'},frappe:{it:'Frappé',ar:'الفربي'},slush:{it:'Slush',ar:'السلاش'},breakfast:{it:'Colazione',ar:'إفطار صباحي'},eveningbox:{it:'Box Serale',ar:'بوكس مسائي'},dolci:{it:'Dolci',ar:'الحلويات'}};
 const SUB={hot_coffee:{ar:'القهوة الساخنة',it:'Caffè Caldo'},hot_tea:{ar:'الشاي الساخن',it:'Tè Caldo'},hot_other:{ar:'مشروبات ساخنة أخرى',it:'Altre Bevande Calde'},matcha:{ar:'شاي الماتشا الياباني',it:'Tè Matcha Giapponese'},iced_tea:{ar:'الآيس تي',it:'Iced Tea'},iced_coffee:{ar:'القهوة الباردة',it:'Caffè Freddo'},tiramisu_cakes:{ar:'تيراميسو وكيك',it:'Tiramisù e Torte'},croissant_briosh:{ar:'بريوش',it:'Briosh'},pancake:{ar:'بانكيك',it:'Pancake'},crepe:{ar:'كريب',it:'Crepes'},other_sweets:{ar:'حلويات أخرى',it:'Altri Dolci'}};
 
-const HC=[{id:4,ar:"نسكافي عادية",it:"Nescafé Normale",prices:[{label:'صغير',price:'4 د.ل'},{label:'كبير',price:'6 د.ل'}],cat:"hotcoffee",sub:"hot_coffee",img:"nescafe.webp"},{id:5,ar:"قهوه ايطالية حليب",it:"Caffè Latte",price:"4 د.ل",cat:"hotcoffee",sub:"hot_coffee",img:"italianc.webp"},{id:6,ar:"نسكافي كامل",it:"Nescafé Completo",prices:[{label:'صغير',price:'8 د.ل'},{label:'كبير',price:'10 د.ل'}],cat:"hotcoffee",sub:"hot_coffee",img:"fullnescafe.webp"},{id:7,ar:"كابتيشنو",it:"Cappuccino",price:"5 د.ل",cat:"hotcoffee",sub:"hot_coffee",img:"capp.webp"},{id:903,ar:"قهوه عربيه",it:"Caffè Arabico",price:"4 د.ل",cat:"hotcoffee",sub:"hot_coffee",img:"arabicc.webp"},{id:901,ar:"شاي احمر مغربي او كيس ليبتون",it:"Tè Rosso Marocchino o Lipton",price:"3 د.ل",cat:"hotcoffee",sub:"hot_tea",img:"redtea.webp"},{id:902,ar:"شاي اخضر مغربي او ليبتون",it:"Tè Verde Marocchino o Lipton",price:"3 د.ل",cat:"hotcoffee",sub:"hot_tea",img:"greentea.webp"},{id:905,ar:"سحلب باللوز",it:"Sahlab con Mandorle",price:"9 د.ل",cat:"hotcoffee",sub:"hot_other",img:"sahlab.webp"},{id:906,ar:"هوت شوكليت",it:"Cioccolata Calda",price:"10 د.ل",cat:"hotcoffee",sub:"hot_other",img:"hotch.webp"}];
-const CC=[{id:402,ar:"ماتشا فراولة",it:"Matcha alla fragola",price:"20 د.ل",cat:"coldcoffee",sub:"matcha",img:"matchastrw.webp"},{id:402,ar:"ماتشا مانجو",it:"Matcha al mango",price:"20 د.ل",cat:"coldcoffee",sub:"matcha",img:"matcham2.webp"},{id:403,ar:"ماتشا فانيليا",it:"Matcha alla vaniglia",price:"20 د.ل",cat:"coldcoffee",sub:"matcha",img:"matchav.webp"},{id:405,ar:"ماتشا بحليب جوز الهند",it:"Matcha al latte di cocco",price:"22 د.ل",cat:"coldcoffee",sub:"matcha",img:"matcham.webp"},{id:406,ar:"ماتشا بالحليب",it:"Matcha al latte",price:"19 د.ل",cat:"coldcoffee",sub:"matcha",img:"matcham.webp"},{id:407,ar:"ماتشا مركزة",it:"Matcha concentrato",price:"26 د.ل",cat:"coldcoffee",sub:"matcha",img:"matchass.webp"},{id:911,ar:"آيس تي توت",it:"Tè freddo ai frutti di bosco",price:"12 د.ل",cat:"coldcoffee",sub:"iced_tea",img:"iceteablu.webp"},{id:912,ar:"آيس تي خوخ",it:"tè freddo alla pesca",price:"12 د.ل",cat:"coldcoffee",sub:"iced_tea",img:"icetea.webp"},{id:913,ar:"آيس تي لافندر",it:"Tè freddo alla lavanda",price:"12 د.ل",cat:"coldcoffee",sub:"iced_tea",img:"icetealav.webp"},{id:914,ar:"آيس تي ليمون ونعناع",it:"Tè freddo al limone e menta",price:"12 د.ل",cat:"coldcoffee",sub:"iced_tea",img:"icetealem.webp"},{id:915,ar:"آيس تي باشن فروت",it:"Tè freddo al frutto della passione",price:"12 د.ل",cat:"coldcoffee",sub:"iced_tea",img:"iceteaba.webp"},{id:9,ar:"آيس لاتيه",it:"Caffè Freddo Italiano",price:"14 د.ل",cat:"coldcoffee",sub:"iced_coffee",img:"icedlate.webp"},{id:10,ar:"آيس بستاشيو لاتيه",it:"Caffè Freddo al Pistacchio",price:"15 د.ل",cat:"coldcoffee",sub:"iced_coffee",img:"icedpis.webp"},{id:260,ar:"ايس كافي فانيليا",it:"Caffè Vanilla Freddo",price:"15 د.ل",cat:"coldcoffee",sub:"iced_coffee",img:"icedcramel.webp"},{id:261,ar:"ايس كافي فراولة",it:"Caffè Fragola Freddo",price:"14 د.ل",cat:"coldcoffee",sub:"iced_coffee",img:"iceds.webp"},{id:11,ar:"فرابيتشينو",it:"Frappuccino",cat:"coldcoffee",sub:"iced_coffee",img:"frapp3.webp",variants:[{name:"كلاسيك",price:"12 د.ل"},{name:"كراميل",price:"16 د.ل"}]}];
-const JU=[{id:1,ar:"عصير مانجو",it:"Succo di mango",cat:"juices",img:"mangoj.webp",variants:[{name:"كوب",price:"9 د.ل"},{name:"لتر",price:"20 د.ل"}]},{id:73,ar:"عصير مانجو وفراولة",it:"Succo di Mango e Fragola",cat:"juices",img:"mangos.webp",variants:[{name:"كوب",price:"8 د.ل"}]},{id:32,ar:"عصير فراولة",it:"Succo di Fragola",cat:"juices",img:"strw.webp",variants:[{name:"كوب",price:"7 د.ل"},{name:"لتر",price:"17 د.ل"}]},{id:29,ar:"عصير كوكتيل",it:"Succo di Cocktail",cat:"juices",img:"koktail.webp",variants:[{name:"كوب صغير",price:"10 د.ل"},{name:"لتر",price:"20 د.ل"}]},{id:74,ar:"عصير اناناس",it:"Succo di Ananas",cat:"juices",img:"an.webp",variants:[{name:"كوب",price:"12 د.ل"},{name:"لتر",price:"30 د.ل"}]},{id:104,ar:"عصير أناناس وجوز الهند",it:"Succo di ananas e cocco",cat:"juices",img:"an.webp",variants:[{name:"كوب",price:"14 د.ل"}]},{id:72,ar:"عصير عنب",it:"Succo di Uva",cat:"juices",img:"grape.webp",variants:[{name:"كوب",price:"10 د.ل"},{name:"لتر",price:"28 د.ل"}]},{id:35,ar:"عصير برتقال",it:"Succo di Arancia",cat:"juices",img:"orange.webp",variants:[{name:"كوب",price:"8 د.ل"},{name:"لتر",price:"18 د.ل"}]},{id:2,ar:"ليمون بالنعناع",it:"Limone e Menta",cat:"juices",img:"lemon2.webp",variants:[{name:"كوب",price:"8 د.ل"},{name:"لتر",price:"16 د.ل"}]},{id:602,ar:"افوكادو",it:"Avocado",price:"28 د.ل",cat:"juices",img:"avocado.webp"},{id:30,ar:"فروتا",it:"Fruita",cat:"juices",img:"fruita.webp",variants:[{name:"كوب",price:"10 د.ل"}]},{id:37,ar:"جوافة وبنجر",it:"Guava e Barbabietola",cat:"juices",img:"gwafab.webp",variants:[{name:"كوب",price:"8 د.ل"}]},{id:75,ar:"عصير جوافة",it:"Succo di Guava",cat:"juices",img:"gwafa.webp",variants:[{name:"كوب",price:"8 د.ل"},{name:"لتر",price:"18 د.ل"}]}];
-const TR=[{id:601,ar:"تروبيكال مانجو",it:"Tropical Mango",price:"45 د.ل",cat:"tropical",img:"tro3.webp"},{id:603,ar:"تروبيكال افوكادو",it:"Tropical Avocado",price:"65 د.ل",cat:"tropical",img:"tro2.webp"},{id:604,ar:"تروبيكال اناناس وجوز الهند",it:"Tropical Ananas e Cocco",price:"45 د.ل",cat:"tropical",img:"tro1.webp"},{id:605,ar:"تروبيكال فراولة",it:"Tropical Fragola",price:"49 د.ل",cat:"tropical",img:"trs.webp"}];
-const SMSH=[{id:305,ar:"توت",it:"Frutti di bosco",cat:"smoothieshake",img:"milkbl.webp",variants:[{name:"سموثي كوب",price:"11 د.ل"},{name:"سموثي لتر",price:"26 د.ل"},{name:"شيك كوب",price:"15 د.ل"},{name:"شيك لتر",price:"35 د.ل"}]},{id:503,ar:"كيندر",it:"Kinder",cat:"smoothieshake",img:"milnk.webp",variants:[{name:"شيك كوب",price:"15 د.ل"},{name:"شيك لتر",price:"35 د.ل"}]},{id:502,ar:"أوريو",it:"Oreo",cat:"smoothieshake",img:"milk.webp",variants:[{name:"شيك كوب",price:"14 د.ل"},{name:"شيك لتر",price:"32 د.ل"}]},{id:501,ar:"نيوتيلا",it:"Nutella",cat:"smoothieshake",img:"milnk.webp",variants:[{name:"شيك كوب",price:"12 د.ل"},{name:"شيك لتر",price:"28 د.ل"}]},{id:506,ar:"بستاشيو",it:"Pistacchio",cat:"smoothieshake",img:"milkp.webp",variants:[{name:"شيك كوب",price:"15 د.ل"},{name:"شيك لتر",price:"35 د.ل"}]}];
-const MJ=[{id:101,ar:"موخيتو علكة",it:"Mojito alla gomma",price:"9 د.ل",cat:"mojito",img:"moje.webp"},{id:102,ar:"موخيتو فراولة",it:"Mojito alla fragola",price:"9 د.ل",cat:"mojito",img:"mojs.webp"},{id:103,ar:"موخيتو ليمون ونعناع",it:"Mojito al limone e menta",price:"9 د.ل",cat:"mojito",img:"mojl.webp"}];
+const HC=[
+{id:4,ar:"نسكافي عادية",it:"Nescafé Normale",prices:[{label:'صغير',price:'4 د.ل'},{label:'كبير',price:'6 د.ل'}],cat:"hotcoffee",sub:"hot_coffee",img:"nescafe.webp"},
+{id:5,ar:"قهوه  ايطالية",it:"Caffè Latte",price:"4 د.ل",cat:"hotcoffee",sub:"hot_coffee",img:"italianc.webp"},
+{id:6,ar:"نسكافي كامل",it:"Nescafé Completo",prices:[{label:'صغير',price:'7 د.ل'},{label:'كبير',price:'10 د.ل'}],cat:"hotcoffee",sub:"hot_coffee",img:"fullnescafe.webp"},
+{id:7,ar:"كابتيشنو",it:"Cappuccino",price:"5 د.ل",cat:"hotcoffee",sub:"hot_coffee",img:"capp.webp"},
+{id:903,ar:"قهوه عربيه",it:"Caffè Arabico",price:"4 د.ل",cat:"hotcoffee",sub:"hot_coffee",img:"arabicc.webp"},
+{id:901,ar:"شاي احمر مغربي ",it:"Tè Rosso Marocchino ",price:"3 د.ل",cat:"hotcoffee",sub:"hot_tea",img:"redtea.webp"},
+{id:902,ar:"شاي اخضر  مغربي",it:"Tè Verde Marocchino ",price:"3 د.ل",cat:"hotcoffee",sub:"hot_tea",img:"greentea.webp"},
+{id:104,ar:"شاي ماتشا سكر معدل",it:"Matcha con zucchero regolato",price:"10 د.ل",cat:"hotcoffee",sub:"hot_tea",img:"hotmatcha.webp"},
+{id:905,ar:"سحلب باللوز والشامية",it:"Sahlab con Mandorle",price:"12 د.ل",cat:"hotcoffee",sub:"hot_other",img:"sahlab.webp"},
+{id:103,ar:"سحلب عادي",it:"Sahlab Normale",price:"10 د.ل",cat:"hotcoffee",sub:"hot_other",img:"sahlb1.webp"},
+{id:906,ar:"هوت شوكليت",it:"Cioccolata Calda",price:"15 د.ل",cat:"hotcoffee",sub:"hot_other",img:"hotch.webp"},
+// --- الأصناف الجديدة ---
+{id:100,ar:"اسبريسو",it:"Espresso",price:"4 د.ل",cat:"hotcoffee",sub:"hot_coffee",img:"esspreso1.webp"},
+{id:101,ar:"اسبريسو دبل",it:"Espresso Doppio",prices:[{label:'بدون ماء',price:'6 د.ل'},{label:'مع ماء',price:'7 د.ل'}],cat:"hotcoffee",sub:"hot_coffee",img:"esspreso.webp"},
+{id:102,ar:"كافي أمريكانو",it:"Caffè Americano",price:"5 د.ل",desc:"يقدم مع ماء ساخن (Served with hot water)",cat:"hotcoffee",sub:"hot_coffee",img:"amreco.webp"}
+];
+const CC=[
+{id:402,ar:"ماتشا فراولة",it:"Matcha alla fragola",price:"20 د.ل",cat:"coldcoffee",sub:"matcha",img:"matchastrw.webp"},
+{id:402,ar:"ماتشا مانجو",it:"Matcha al mango",price:"20 د.ل",cat:"coldcoffee",sub:"matcha",img:"matcham2.webp"},
+{id:403,ar:"ماتشا فانيليا",it:"Matcha alla vaniglia",price:"20 د.ل",cat:"coldcoffee",sub:"matcha",img:"matchav.webp"},
+{id:405,ar:"ماتشا بحليب جوز الهند",it:"Matcha al latte di cocco",price:"22 د.ل",cat:"coldcoffee",sub:"matcha",img:"matcham.webp"},
+{id:406,ar:"ماتشا بالحليب",it:"Matcha al latte",price:"19 د.ل",cat:"coldcoffee",sub:"matcha",img:"matcham.webp"},
+{id:407,ar:"ماتشا مركزة",it:"Matcha concentrato",price:"26 د.ل",cat:"coldcoffee",sub:"matcha",img:"matchass.webp"},
+{id:911,ar:"آيس تي توت",it:"Tè freddo ai frutti di bosco",price:"12 د.ل",cat:"coldcoffee",sub:"iced_tea",img:"iceteablu.webp"},
+{id:912,ar:"آيس تي خوخ",it:"tè freddo alla pesca",price:"12 د.ل",cat:"coldcoffee",sub:"iced_tea",img:"icetea.webp"},
+{id:913,ar:"آيس تي لافندر",it:"Tè freddo alla lavanda",price:"12 د.ل",cat:"coldcoffee",sub:"iced_tea",img:"icetealav.webp"},
+{id:914,ar:"آيس تي ليمون ونعناع",it:"Tè freddo al limone e menta",price:"12 د.ل",cat:"coldcoffee",sub:"iced_tea",img:"icetealem.webp"},
+{id:915,ar:"آيس تي باشن فروت",it:"Tè freddo al frutto della passione",price:"12 د.ل",cat:"coldcoffee",sub:"iced_tea",img:"iceteaba.webp"},
+{id:9,ar:"آيس لاتيه",it:"Caffè Freddo Italiano",price:"14 د.ل",cat:"coldcoffee",sub:"iced_coffee",img:"icedlate.webp"},
+{id:10,ar:"آيس بستاشيو لاتيه",it:"Caffè Freddo al Pistacchio",price:"15 د.ل",cat:"coldcoffee",sub:"iced_coffee",img:"icedpis.webp"},
+{id:260,ar:"ايس كافي فانيليا",it:"Caffè Vanilla Freddo",price:"14 د.ل",cat:"coldcoffee",sub:"iced_coffee",img:"icedcramel.webp"},
+{id:261,ar:"ايس كافي فراولة",it:"Caffè Fragola Freddo",price:"14 د.ل",cat:"coldcoffee",sub:"iced_coffee",img:"iceds.webp"},
+// --- الأصناف الجديدة (تم تصحيح مكانها) ---
+{id:105,ar:"ايس كوفي كلاسيك",it:"Caffè Freddo Classico",price:"12 د.ل",cat:"coldcoffee",sub:"iced_coffee",img:"icecoffecla.webp"},
+{id:106,ar:"ايس كوفي كراميل",it:"Caffè Freddo al Caramello",price:"14 د.ل",cat:"coldcoffee",sub:"iced_coffee",img:"icecoffecra.webp"},
+{id:11,ar:"فرابيتشينو",it:"Frappuccino",cat:"coldcoffee",sub:"iced_coffee",img:"frapp3.webp",variants:[{name:"كلاسيك",price:"12 د.ل"},{name:"كراميل",price:"15 د.ل"}]}];
+const JU=[
+{id:1,ar:"عصير مانجو",it:"Succo di mango",cat:"juices",img:"mangoj.webp",variants:[{name:"كوب",price:"9 د.ل"},{name:"لتر",price:"20 د.ل"}]},
+{id:73,ar:"عصير مانجو وفراولة",it:"Succo di Mango e Fragola",cat:"juices",img:"mangos.webp",variants:[{name:"كوب",price:"8 د.ل"}]},
+{id:32,ar:"عصير فراولة",it:"Succo di Fragola",cat:"juices",img:"strw.webp",variants:[{name:"كوب",price:"7 د.ل"},{name:"لتر",price:"17 د.ل"}]},
+{id:29,ar:"عصير كوكتيل",it:"Succo di Cocktail",cat:"juices",img:"koktail.webp",variants:[{name:"كوب صغير",price:"10 د.ل"},{name:"لتر",price:"22 د.ل"}]},
+{id:72,ar:"عصير عنب",it:"Succo di Uva",cat:"juices",img:"grape.webp",variants:[{name:"كوب",price:"10 د.ل"},{name:"لتر",price:"28 د.ل"}]},
+{id:35,ar:"عصير برتقال",it:"Succo di Arancia",cat:"juices",img:"orange.webp",variants:[{name:"كوب",price:"8 د.ل"},{name:"لتر",price:"18 د.ل"}]},
+{id:2,ar:"ليمون بالنعناع",it:"Limone e Menta",cat:"juices",img:"lemon2.webp",variants:[{name:"كوب",price:"8 د.ل"},{name:"لتر",price:"16 د.ل"}]},
+{id:30,ar:"فروتا",it:"Fruita",cat:"juices",img:"fruita.webp",variants:[{name:"كوب",price:"12 د.ل"}]},
+{id:37,ar:"جوافة وبنجر",it:"Guava e Barbabietola",cat:"juices",img:"gwafab.webp",variants:[{name:"كوب",price:"8 د.ل"},{name:"لتر",price:"20 د.ل"}]},
+{id:75,ar:"عصير جوافة",it:"Succo di Guava",cat:"juices",img:"gwafa.webp",variants:[{name:"كوب",price:"8 د.ل"},{name:"لتر",price:"18 د.ل"}]},
+{id:104,ar:"عصير أناناس وجوز الهند",it:"Succo di ananas e cocco",cat:"juices",img:"ana.webp",variants:[{name:"كوب",price:"14 د.ل"}]},
+{id:74,ar:"عصير اناناس",it:"Succo di Ananas",cat:"juices",img:"ana.webp",variants:[{name:"كوب",price:"12 د.ل"},{name:"لتر",price:"30 د.ل"}]},
+
+{id:602,ar:"افوكادو",it:"Avocado",price:"28 د.ل",cat:"juices",img:"avocado.webp"},
+{id:108,ar:"افوكادو دبل",it:"Avocado Doppio",price:"23 د.ل",desc:"يحتوي على طبقتين من اللوز والعسل",cat:"juices",img:"avocadot.webp"},
+{id:109,ar:"افوكادو تربل",it:"Avocado Triplo",price:"32 د.ل",desc:"كوب نصف لتر",cat:"juices",img:"avocadod.webp"}
+];
+const TR = [
+  {
+    id: 601,
+    ar: "تروبيكال مانجو",
+    it: "Tropical Mango",
+    price: "45 د.ل",
+    cat: "tropical",
+    img: "tro3.webp",
+    desc: "عصير مانجو او حسب الطلب مع صحن بانكيك وفواكه"
+  },
+  {
+    id: 603,
+    ar: "تروبيكال افوكادو",
+    it: "Tropical Avocado",
+    price: "65 د.ل",
+    cat: "tropical",
+    img: "tro2.webp",
+    desc: "كوب نصف لتر افوكادو مع صحن فواكه مشكل حسب الطلب"
+  },
+  {
+    id: 604,
+    ar: "تروبيكال اناناس وجوز الهند",
+    it: "Tropical Ananas e Cocco",
+    price: "45 د.ل",
+    cat: "tropical",
+    img: "tro1.webp",
+    desc: "كوب نصف لتر مع صحن فواكه او بانكيك حسب الطلب"
+  },
+  {
+    id: 605,
+    ar: "تروبيكال فراولة",
+    it: "Tropical Fragola",
+    price: "49 د.ل",
+    cat: "tropical",
+    img: "trs.webp",
+    desc: "كوب نصف لتر عصير فراوله مع صحن فراوله بالنيوتيلا"
+  },
+];
+const SMSH=[
+{id:302,ar:"توت (بلوبيري)",it:"Blueberries / Frutti di bosco",cat:"smoothieshake",img:"smoothie.webp",variants:[{name:"كوب",price:"17 د.ل"},{name:"نصف لتر",price:"25 د.ل"},{name:"لتر",price:"35 د.ل"}]},
+{id:303,ar:"دولفين",it:"Dolphin",cat:"smoothieshake",img:"dolphin.webp",variants:[{name:"كوب",price:"17 د.ل"},{name:"نصف لتر",price:"25 د.ل"},{name:"لتر",price:"35 د.ل"}]},
+{id:304,ar:"علكة",it:"Gomma",cat:"smoothieshake",img:"dolphin.webp",variants:[{name:"كوب",price:"17 د.ل"},{name:"نصف لتر",price:"25 د.ل"},{name:"لتر",price:"35 د.ل"}]},
+{id:506,ar:"بستاشيو",it:"Pistacchio",cat:"smoothieshake",img:"milkp.webp",variants:[{name:"كوب",price:"17 د.ل"},{name:"نصف لتر",price:"25 د.ل"},{name:"لتر",price:"35 د.ل"}]},
+{id:502,ar:"أوريو",it:"Oreo",cat:"smoothieshake",img:"milk.webp",variants:[{name:"كوب",price:"17 د.ل"},{name:"نصف لتر",price:"25 د.ل"},{name:"لتر",price:"36 د.ل"}]},
+{id:503,ar:"كندر",it:"Kinder",cat:"smoothieshake",img:"kn.webp",variants:[{name:"كوب",price:"19 د.ل"},{name:"نصف لتر",price:"26 د.ل"},{name:"لتر",price:"36 د.ل"}]},
+{id:504,ar:"كتكات",it:"KitKat",cat:"smoothieshake",img:"kitkat.webp",variants:[{name:"كوب",price:"19 د.ل"},{name:"نصف لتر",price:"26 د.ل"},{name:"لتر",price:"36 د.ل"}]},
+{id:505,ar:"باونتي",it:"Bounty",cat:"smoothieshake",img:"bounty.webp",variants:[{name:"كوب",price:"19 د.ل"},{name:"نصف لتر",price:"26 د.ل"},{name:"لتر",price:"36 د.ل"}]},
+{id:507,ar:"سنكرز",it:"Snickers",cat:"smoothieshake",img:"snickers.webp",variants:[{name:"كوب",price:"19 د.ل"},{name:"نصف لتر",price:"26 د.ل"},{name:"لتر",price:"36 د.ل"}]},
+{id:508,ar:"مارس",it:"Mars",cat:"smoothieshake",img:"mars.webp",variants:[{name:"كوب",price:"19 د.ل"},{name:"نصف لتر",price:"26 د.ل"},{name:"لتر",price:"36 د.ل"}]},
+{id:509,ar:"نيوتيلا",it:"Nutella",cat:"smoothieshake",img:"mn.webp",variants:[{name:"كوب",price:"17 د.ل"},{name:"نصف لتر",price:"25 د.ل"},{name:"لتر",price:"35 د.ل"}]}
+];
+const MJ=[{id:101,ar:"موخيتو علكة",it:"Mojito alla gomma",price:"12 د.ل",cat:"mojito",img:"moje.webp"},{id:102,ar:"موخيتو فراولة",it:"Mojito alla fragola",price:"12 د.ل",cat:"mojito",img:"mojs.webp"},{id:103,ar:"موخيتو ليمون ونعناع",it:"Mojito al limone e menta",price:"12 د.ل",cat:"mojito",img:"mojl.webp"}];
 const FR=[{id:62,ar:"فربي فراولة",it:"Frappé alla fragola",price:"8 د.ل",cat:"frappe",img:"frobys.webp"},{id:63,ar:"فربي موز",it:"Frappé alla banana",price:"8 د.ل",cat:"frappe",img:"fr1.webp"},{id:108,ar:"فربي تمر ولوز",it:"Frappé di datteri e mandorle",price:"9 د.ل",cat:"frappe",img:"frobytmr.webp"},{id:109,ar:"فربي فراولة ومانجا",it:"Frappé alla fragola e mango",price:"9 د.ل",cat:"frappe",img:"frobyms.webp"},{id:110,ar:"فربي مانجا",it:"Frappé al mango",price:"8 د.ل",cat:"frappe",img:"frobym.webp"}];
 const SL=[{id:105,ar:"سلاش فواكه",it:"Slush di frutta",price:"17 د.ل",cat:"slush",img:"sl2.webp"},{id:110,ar:"سلاش مانجو وعلكة 500ml",it:"Slush mango e gomma",price:"15 د.ل",cat:"slush",img:"sl1.webp"},{id:111,ar:"سلاش مانجو وعلكة",it:"Slush mango e gomma",price:"10 د.ل",cat:"slush",img:"sl3.webp"},{id:112,ar:"سلاش مانجو وعلكة وفواكه",it:"Slush mango e gomma",price:"15 د.ل",cat:"slush",img:"sl4.webp"}];
 const BF=[{id:705,ar:"بوكس افطار ",it:"Box Mattino ",cat:"breakfast",img:"box1.webp",customBox:true,note:"أصنافك المفضلة · بنفس سعر القائمة"},{id:702,ar:"بوكس افطار ",it:"Colazione ",cat:"breakfast",img:"box2.webp",customBox:true,note:"أصنافك المفضلة · بنفس سعر القائمة"},{id:706,ar:"بوكس افطار جاهز",it:"Box Mattino",price:"18 د.ل",cat:"breakfast",img:"morbox2.webp"}];
 const EV=[{id:801,ar:"بوكس مسائي ",it:"Box Serale ",cat:"eveningbox",img:"evening3.webp",customBox:true,note:"أصنافك المفضلة · بنفس سعر القائمة"}];
 
-// ترتيب الحلويات: تيراميسو وكيك - بريوش - كريب - بانكيك - حلويات أخرى
 const DC=[
-    /* --- تيراميسو وكيك --- */
-    {id:50,ar:"تيراميسو لوتس",it:"Tiramisù al loto",price:"10 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"tira2.webp"},
-    {id:59,ar:"تيراميسو كلاسيك",it:"Tiramisù Classico",price:"10 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"tira1.webp"},
-    {id:51,ar:"تيراميسو بستاشيو",it:"Tiramisù al pistacchio",price:"18 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"tira3.webp"},
-    {id:52,ar:"تيراميسو اوريو",it:"Tiramisù all'Oreo",price:"18 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"tira4.webp"},
-    {id:77,ar:"كيكة مانجو حجم صغير",it:"Mango Cake Small",price:"8 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"mangocs.webp"},
+    {id:50,ar:"تيراميسو لوتس",it:"Tiramisù al loto",price:"17 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"tira2.webp"},
+    {id:59,ar:"تيراميسو كلاسيك",it:"Tiramisù Classico",price:"15 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"tira1.webp"},
+    {id:51,ar:"تيراميسو بستاشيو",it:"Tiramisù al pistacchio",price:"17 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"tira3.webp"},
+    {id:52,ar:"تيراميسو اوريو",it:"Tiramisù all'Oreo",price:"17 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"tira4.webp"},
+    {id:77,ar:"كيكة مانجو حجم صغير",it:"Mango Cake Small",price:"10 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"mangocs.webp"},
     {id:820,ar:"ليزي كات كيك حجم صغير",it:"Lazy Cat Cake Small",price:"10 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"lazy.webp"},
+    {id:800,ar:"كيكة لوتس حجم صغير",it:"Lotus Cake Small",price:"12 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"luts.webp"},
+
     {id:79,ar:"كيكة بستاشيو",it:"Torta al Pistacchio",price:"12 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"pisc.webp"},
     {id:78,ar:"كيكة شوكولاته",it:"torta al cioccolato",price:"12 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"choc.webp"},
     {id:66,ar:"كيكة كندر حجم صغير",it:"Kinder Cake Small",price:"12 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"Kindercake2.webp"},
     {id:772,ar:"كيكة مانجو حجم كبير  جرام",it:"Mango Cake Large 750g",price:"25 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"mangoc.webp"},
     {id:821,ar:"ليزي كات كيك حجم كبير",it:"Lazy Cat Cake Large",price:"25 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"oreoc.webp"},
-    {id:81,ar:"كيكة كندر حجم كبير",it:"Torta Kinder Grande",price:"25 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"kindercake3.webp"},
+    {id:81,ar:"كيكة كندر حجم كبير",it:"Torta Kinder Grande",price:"30 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"kindercake3.webp"},
     {id:80,ar:"كيكة لوتس",it:"Torta al Lotus",price:"25 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"lutc.webp"},
 
-    /* --- بريوش --- */
     {id:1011,ar:"بريوش ايطالي",it:"Briosh Italiano",price:"8 د.ل",cat:"dolci",sub:"croissant_briosh",img:"briosha.webp"},
-    {id:1019,ar:"بريوش شوكولاتة",it:"Briosh Cioccolato",price:"10 د.ل",cat:"dolci",sub:"croissant_briosh",img:"brioshc.webp"},
-    {id:1009,ar:"بريوش مكس فستق نيوتيلا",it:"Briosh Misto Pistacchio e Nutella",price:"12 د.ل",cat:"dolci",sub:"croissant_briosh",img:"brioshmix.webp"},
+    {
+      id: 1009,
+      ar: "بريوش ايطالي مكس ",
+      it: "Briosh Misto Pistacchio e Nutella",
+      price: "12 د.ل",
+      cat: "dolci",
+      sub: "croissant_briosh",
+      img: "brioshmix.webp",
+      desc: "محقون نيوتيلا وبستاشيو او نيوتيلا لوتس"
+    },
+    {
+      id: 53,
+      ar: "بريوش ايطالي محقون",
+      it: "Briosh Iniettato",
+      price: "10 د.ل",
+      cat: "dolci",
+      sub: "croissant_briosh",
+      img: "briosh2.webp",
+      desc: "محقون نيوتيلا"
+    },
     {id:1015,ar:"بريوش فواكه",it:"Briosh alla Frutta",price:"15 د.ل",cat:"dolci",sub:"croissant_briosh",img:"brioshf.webp"},
-    {id:1014,ar:"بريوش شوفان",it:"Briosh ai Cereali",price:"12 د.ل",cat:"dolci",sub:"croissant_briosh",img:"brioshoat.webp"},
-    {id:53,ar:"بريوش محقون",it:"Briosh Iniettato",price:"15 د.ل",cat:"dolci",sub:"croissant_briosh",img:"briosh2.webp"},
+
+    {id:1019,ar:"بريوش  نيوتيلا مقصوص",it:"Briosh alla Nutella",price:"7 د.ل",cat:"dolci",sub:"croissant_briosh",img:"brioshc.webp"},
+
+    {
+      id: 1010,
+      ar: "بريوش لوتس مقصوص",
+      it: "Briosh Lotus",
+      price: "10 د.ل",
+      cat: "dolci",
+      sub: "croissant_briosh",
+      img: "l.webp",
+      desc: "مقصوص وفوقه كريم لوتس"
+    },
+    {
+      id: 1018, // تم تغيير الرقم من 1011 إلى 1018 لتجنب التكرار
+      ar: "بريوش  بستاشيو مقصوص",
+      it: "Briosh al Pistacchio",
+      price: "10 د.ل",
+      cat: "dolci",
+      sub: "croissant_briosh",
+      img: "p.webp",
+      desc: "مقصوص وفوقه كريم بستاشيو"
+    },
     {id:1016,ar:"توستر",it:"Toast",price:"10 د.ل",cat:"dolci",sub:"croissant_briosh",img:"toaster.webp"},
     {id:1017,ar:"بيكان",it:"Pecan",price:"10 د.ل",cat:"dolci",sub:"croissant_briosh",img:"bekan.webp"},
+    {id:1014,ar:"بريوش شوفان",it:"Briosh ai Cereali",price:"12 د.ل",cat:"dolci",sub:"croissant_briosh",img:"brioshoat.webp"},
 
-    /* --- كريب --- */
+
     {id:1101,ar:"كريب نيوتيلا ولوز وعسل",it:"Crepes Nutella, Mandorle e Miele",price:"25 د.ل",cat:"dolci",sub:"crepe",img:"crepenn.webp"},
     {id:1102,ar:"كريب مكس",it:"Crepes Misto",price:"30 د.ل",cat:"dolci",sub:"crepe",img:"crepemix.webp"},
     {id:1111,ar:"كريب مكس",it:"Crepes Misto",price:"30 د.ل",cat:"dolci",sub:"crepe",img:"crepemix2.webp"},
@@ -335,12 +474,11 @@ const DC=[
     {id:1006,ar:"بانكيك نيوتيلا",it:"Pancake alla Nutella",price:"19 د.ل",cat:"dolci",sub:"pancake",img:"panc3.webp"},
 
     /* --- حلويات أخرى --- */
-    {id:120,ar:"بسبوسة قشطة",it:"Basbousa con Panna",price:"5 د.ل",cat:"dolci",sub:"other_sweets",img:"basbosa2.webp"},
+    {id:190,ar:"بسبوسة قشطة",it:"Basbousa con Panna",price:"5 د.ل",cat:"dolci",sub:"other_sweets",img:"basbosa2.webp"}, // تم تغيير الرقم من 120 إلى 190 لتجنب التضارب مع العصائر
     {id:122,ar:"بسبوسة شكلاطة",it:"Basbousa al Cioccolato",price:"5 د.ل",cat:"dolci",sub:"other_sweets",img:"basbosa.webp"},
     {id:183,ar:"دونات",it:"Doughnut",price:"10 د.ل",cat:"dolci",sub:"other_sweets",img:"donat.webp"},
     {id:184,ar:"سينابون",it:"Cinnabon",price:"10 د.ل",cat:"dolci",sub:"other_sweets",img:"cinnabon.webp"}
 ];
-
 
 const ALL=[...HC,...CC,...JU,...TR,...SMSH,...MJ,...FR,...SL,...BF,...EV,...DC];
 const phS="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%23F5F1E9' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' font-family='Cairo' font-size='20' fill='%23A07845' text-anchor='middle' dy='.3em'%3EKH Caffe%3C/text%3E%3C/svg%3E";
