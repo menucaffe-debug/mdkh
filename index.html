@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>KH IL VOSTRO CAFFE | Menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400&family=Cinzel:wght@400;700;900&family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root{--gold:#A07845;--gold-d:#8A6535;--gold-l:#C69C6D;--gold-s:#B08D55;--dk:#1C1C1E;--espresso:#3E2723;--t2:#4A4A4A;--t3:#7A7A7A;--bg:#FAF7F2;--wm:#FFFFFF;--cr:#F5F1E9;--cd:#FFFFFF;--bd:rgba(160,120,69,.08);--sh-s:0 8px 30px rgba(160,120,69,.06);--sh-g:0 25px 50px rgba(160,120,69,.15)}
+        *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{scroll-behavior:smooth}
+        body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--dk);overflow-x:hidden;position:relative}
+        
+        /* Premium Background Textures */
+        #bg-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+        .bg-t{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23A07845' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+        .bg-g{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 20% 0%,rgba(160,120,69,.05) 0%,transparent 60%),radial-gradient(ellipse at 80% 100%,rgba(160,120,69,.04) 0%,transparent 50%)}
+        .bg-grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.4;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");mix-blend-mode:multiply}
+        
+        /* Hero Section */
+        .hero{position:relative;width:100%;height:85vh;min-height:550px;overflow:hidden;z-index:5;display:flex;align-items:center;justify-content:center;padding-bottom:6vh}
+        .hero-i{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;z-index:1}
+        .hero-g{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(0,0,0,.2) 0%,rgba(0,0,0,0) 35%,rgba(0,0,0,.25) 70%,rgba(0,0,0,.85) 100%)}
+        .cbox{position:relative;z-index:10;background:rgba(255,255,255,.05);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:45px 80px;text-align:center;box-shadow:0 30px 70px rgba(0,0,0,.25)}
+        .cbox > *{opacity:0;animation:fadeUp 1s cubic-bezier(.19,1,.22,1) forwards}
+        .cbox .mg{animation-delay:.2s}.cbox .yr{animation-delay:.4s}.cbox .itd{animation-delay:.6s}.cbox .hero-tagline{animation-delay:.8s}
+        @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+        .mg{font-family:'Cinzel',serif;font-size:5.5rem;font-weight:900;color:#fff;line-height:1;text-shadow:0 6px 30px rgba(0,0,0,.5);letter-spacing:12px;margin-bottom:16px}
+        .yr{font-family:'Cairo',sans-serif;font-size:.7rem;color:rgba(255,255,255,.8);letter-spacing:.6em;border-top:1px solid rgba(255,255,255,.2);border-bottom:1px solid rgba(255,255,255,.2);display:inline-block;padding:8px 24px;font-weight:600;margin-bottom:24px}
+        .itd{width:60px;height:2px;background:linear-gradient(90deg,#009246 33%,#fff 33%,#fff 66%,#CE2B37 66%);margin:0 auto 24px;border-radius:2px}
+        .hero-tagline{font-family:'Playfair Display',serif;font-style:italic;color:rgba(255,255,255,.9);font-size:1.2rem;letter-spacing:2px;text-shadow:0 2px 10px rgba(0,0,0,.4)}
+        .hero-scroll{position:absolute;bottom:35px;left:50%;transform:translateX(-50%);z-index:10;color:rgba(255,255,255,.5);font-size:.65rem;letter-spacing:2px;text-align:center;animation:fl 3s ease-in-out infinite;text-transform:uppercase;font-weight:600}
+        .hero-scroll svg{width:20px;height:20px;margin:0 auto 6px;fill:rgba(255,255,255,.5)}
+        @keyframes fl{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-6px)}}
+        
+        .fbar{position:sticky;top:0;z-index:50;background:rgba(250,247,242,.98);backdrop-filter:blur(30px) saturate(1.4);-webkit-backdrop-filter:blur(30px) saturate(1.4);padding:18px 0;border-bottom:1px solid var(--bd);overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;box-shadow:0 6px 25px rgba(0,0,0,.02)}
+        .fbar::-webkit-scrollbar{display:none}
+        .fc{display:flex;gap:12px;padding:0 20px;max-width:1200px;margin:0 auto}
+        .fb{background:var(--wm);border:1px solid var(--bd);padding:12px 24px;border-radius:35px;font-family:'Cairo',sans-serif;font-weight:700;font-size:.8rem;color:var(--t2);cursor:pointer;transition:all .35s cubic-bezier(.4,0,.2,1);flex-shrink:0;position:relative;overflow:hidden;display:flex;align-items:center;gap:6px}
+        .fb::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--gold),var(--gold-l));opacity:0;transition:opacity .35s;border-radius:35px}
+        .fb span{position:relative;z-index:1}.fb .ar{font-size:.8rem}.fb .it{font-size:.62rem;font-weight:600;color:#999;opacity:.7}
+        .fb.on{border-color:transparent;box-shadow:0 12px 30px rgba(160,120,69,.3);transform:scale(1.08)}.fb.on::before{opacity:1}.fb.on span{color:#fff}.fb.on .it{color:rgba(255,255,255,.9)}
+        
+        .shd{grid-column:1/-1;text-align:center;padding:90px 0 20px;opacity:0;transform:translateY(15px);animation:hI .8s ease forwards}
+        @keyframes hI{to{opacity:1;transform:translateY(0)}}
+        .sti{font-family:'Amiri',serif;font-size:2.8rem;font-weight:600;font-style:italic;background:linear-gradient(135deg,var(--espresso),var(--gold-d));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:4px;margin-bottom:8px}        .sta{font-family:'Cairo',sans-serif;font-size:.9rem;font-weight:700;color:var(--gold-s);letter-spacing:5px;margin-bottom:18px;text-transform:uppercase}
+        .so{display:flex;align-items:center;justify-content:center;gap:14px}.sol{width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}.sod{width:8px;height:8px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;box-shadow:0 0 10px rgba(160,120,69,.4)}
+        
+        .sec-desc{grid-column:1/-1;text-align:center;margin:5px auto 40px;max-width:90%;opacity:0;transform:translateY(10px);7animation:hI .8s ease forwards .2s}
+        .sec-desc span{display:inline-block;font-family:'Cairo',sans-serif;font-size:.9rem;font-weight:600;color:var(--espresso);background:linear-gradient(135deg,rgba(160,120,69,.08),rgba(160,120,69,.03));border:1px solid rgba(160,120,69,.2);padding:14px 32px;border-radius:50px;box-shadow:0 5px 20px rgba(160,120,69,.08);line-height:1.6;letter-spacing:.5px}
+        .sec-desc span::before,.sec-desc span::after{content:'✦';color:var(--gold);font-size:.7rem;margin:0 10px;vertical-align:middle}
+        
+        .sub-hdr{grid-column:1/-1;display:flex;align-items:center;justify-content:center;gap:20px;margin:65px 0 30px;opacity:0;animation:hI .8s ease forwards;position:relative}
+        .sub-hdr .sub-line{height:1px;width:80px;background:linear-gradient(90deg,transparent,var(--gold-s));flex-shrink:0}
+        .sub-hdr .sub-line.right{background:linear-gradient(90deg,var(--gold-s),transparent)}
+        .sub-hdr .sub-dot{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);box-shadow:0 0 8px rgba(160,120,69,.3)}
+        .sub-hdr .sub-badge{display:flex;flex-direction:column;align-items:center;gap:4px;position:relative}
+        .sub-hdr .sub-ar{font-family:'Amiri',serif;font-size:1.7rem;font-weight:700;color:var(--espresso);line-height:1}
+        .sub-hdr .sub-it{font-family:'Playfair Display',serif;font-size:.75rem;font-style:italic;color:var(--gold-s);letter-spacing:2.5px;text-transform:uppercase}
+        @media(min-width:768px){.sub-hdr .sub-line{width:140px}}
+        @media(max-width:480px){.sub-hdr .sub-line{width:40px}.sub-hdr .sub-ar{font-size:1.4rem}}
+        
+        .grd{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;padding:10px 16px 60px;max-width:1200px;margin:0 auto;position:relative;z-index:10;align-items:stretch;transition:opacity .3s ease, transform .3s ease;}
+        .card{background:var(--cd);border:1px solid rgba(255,255,255,.6);border-radius:24px;overflow:hidden;box-shadow:var(--sh-s);cursor:pointer;display:flex;flex-direction:column;transition:transform .5s cubic-bezier(.4,0,.2,1),box-shadow .5s;opacity:0;transform:translateY(25px);animation:cI .6s ease forwards;position:relative;will-change:transform}
+        .card::before{content:'';position:absolute;inset:0;border-radius:24px;padding:1px;background:linear-gradient(135deg,rgba(160,120,69,.3),transparent);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .4s;z-index:1;pointer-events:none}
+        .card:hover{transform:translateY(-10px);box-shadow:var(--sh-g)}
+        .card:hover::before{opacity:1}
+        .card:active{transform:scale(.98)!important;transition-duration:.1s}
+        @keyframes cI{to{opacity:1;transform:translateY(0)}}
+        
+        .card.is-box{background:linear-gradient(180deg,#FFFEFB,#FFF8EE)}
+        .ib{width:100%;height:210px;background:linear-gradient(145deg,var(--cr),#EDE7DB);overflow:hidden;position:relative;box-shadow:inset 0 -20px 30px -20px rgba(0,0,0,.05)}
+        .ib::before{content:'';position:absolute;top:0;left:0;right:0;height:30%;background:linear-gradient(180deg,rgba(255,255,255,.1),transparent);z-index:3;pointer-events:none}
+        .ci{width:100%;height:100%;display:block;object-fit:cover;object-position:center center;transition:transform 1s cubic-bezier(.25,.46,.45,.94);filter:saturate(1.05) contrast(1.02)}
+        .card:hover .ci{transform:scale(1.08)}
+        
+        .bl{position:absolute;top:14px;right:14px;z-index:4;font-family:'Cairo',sans-serif;font-size:.55rem;font-weight:800;padding:5px 12px;border-radius:20px;color:#fff;letter-spacing:1px;text-transform:uppercase;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+        .blm{background:linear-gradient(135deg,#D4A24C,#E8B860)}.ble{background:linear-gradient(135deg,#6B4E8D,#8B6BAD)}.blt{background:linear-gradient(135deg,#2E8B57,#3CB371)}
+        
+        .bdy{padding:16px 12px 18px;text-align:center;flex-grow:1;display:flex;flex-direction:column;justify-content:space-between;background:#fff;position:relative}
+        .card.is-box .bdy{background:linear-gradient(180deg,#FFF8EE,#FFF)}
+        .nar{font-family:'Amiri',serif;font-size:1.2rem;font-weight:700;color:var(--dk);line-height:1.35;margin-bottom:2px}
+        .nen{font-family:'Playfair Display',serif;font-size:.65rem;color:var(--t3);font-style:italic;text-transform:uppercase;margin-bottom:8px;letter-spacing:.5px}
+        .prc{font-family:'Cairo',sans-serif;font-weight:800;color:var(--gold-d);font-size:1rem;background:linear-gradient(135deg,#FFFCF5,#FFF8EB);padding:10px 0;border-radius:12px;display:block;width:100%;border:1px solid rgba(160,120,69,.1);box-shadow:0 3px 8px rgba(0,0,0,0.02);margin-top:auto}
+        .cbp{font-family:'Cairo',sans-serif;font-weight:700;font-size:.72rem;color:var(--espresso);background:linear-gradient(135deg,rgba(160,120,69,.08),rgba(160,120,69,.03));padding:8px 4px;border-radius:8px;display:block;width:100%;border:1px solid rgba(160,120,69,.12);text-align:center;line-height:1.5}
+        .po{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid rgba(160,120,69,.08)}
+        .pt{font-weight:700;color:var(--t2);font-size:.7rem;display:flex;align-items:center;gap:3px}
+        .pt .sz{color:var(--gold);font-weight:600;font-size:.65rem;min-width:14px}.pv{color:var(--dk);font-weight:700;font-size:.75rem}
+        .fg{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-top:8px;padding:0 2px}
+        .ft{font-family:'Cairo',sans-serif;font-size:.6rem;font-weight:700;padding:4px 10px;border-radius:12px;border:1px solid rgba(160,120,69,.08);background-color:rgba(245,243,238,.6);color:var(--dk-s);cursor:default;transition:all .2s;white-space:nowrap}
+        .ft:hover{background-color:rgba(160,120,69,.1)}.ft.fe{background-color:var(--gold);color:#fff;border-color:transparent;box-shadow:0 2px 8px rgba(160,120,69,.2)}
+        .hv .prc{display:none}
+        
+        /* ===== Professional Modal Effect ===== */
+        body.modal-active .hero,
+        body.modal-active .fbar,
+        body.modal-active .grd,
+        body.modal-active .mft {
+            transform: scale(0.96);
+            filter: blur(8px) brightness(0.9);
+            transition: transform 0.5s cubic-bezier(.19,1,.22,1), filter 0.5s ease;
+            pointer-events: none;
+        }
+        .dba{position:fixed;inset:0;z-index:900;background:rgba(28,28,30,.4);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .4s}
+        .dba.on{opacity:1;pointer-events:all}.dba.cl{opacity:0;transition-duration:.25s}
+        .dp{position:fixed;bottom:0;left:0;right:0;z-index:950;background:var(--wm);border-radius:32px 32px 0 0;max-height:92vh;overflow-y:auto;-webkit-overflow-scrolling:touch;transform:translateY(100%);transition:transform .6s cubic-bezier(.19,1,.22,1);opacity:0;box-shadow:0 -15px 80px rgba(0,0,0,.25);will-change:transform}
+        .dp::-webkit-scrollbar{display:none}.dp.on{transform:translateY(0);opacity:1}.dp.cl{transform:translateY(100%);opacity:0;transition-duration:.35s}
+        .phd{width:40px;height:4px;background:rgba(160,120,69,.15);border-radius:4px;margin:14px auto 0}
+        .pcl{position:absolute;top:18px;left:18px;width:38px;height:38px;border-radius:50%;border:none;background:rgba(255,255,255,.95);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--dk);transition:all .3s;z-index:5;box-shadow:0 4px 15px rgba(0,0,0,0.08)}
+        .pcl:hover{background:var(--dk);color:#fff;transform:rotate(90deg)}
+        .pic{width:100%;height:320px;max-height:45vh;background:linear-gradient(145deg,var(--cr),#E8E0D0);display:flex;align-items:center;justify-content:center;overflow:hidden;margin-top:6px;border-radius:32px 32px 0 0;position:relative}
+        .pim{width:100%;height:100%;object-fit:cover;object-position:center center;transform:scale(.96);transition:transform 1s cubic-bezier(.25,.46,.45,.94) .15s;will-change:transform;filter:saturate(1.05) contrast(1.02)}.dp.on .pim{transform:scale(1)}
+        .pinf{padding:24px 24px 60px;text-align:center}
+        .pna{font-family:'Amiri',serif;font-size:2.6rem;font-weight:700;color:var(--espresso);line-height:1.3;margin-bottom:8px;opacity:0;transform:translateY(18px)}.dp.on .pna{animation:pU .6s cubic-bezier(.19,1,.22,1) .2s forwards}
+        .pni{font-family:'Playfair Display',serif;font-size:1rem;color:var(--t3);font-style:italic;letter-spacing:1.5px;margin-bottom:12px;opacity:0;transform:translateY(12px)}.dp.on .pni{animation:pU .6s cubic-bezier(.19,1,.22,1) .3s forwards}
+        .pds{font-family:'Cairo',sans-serif;font-size:.9rem;font-weight:400;color:var(--t2);line-height:1.6;margin-bottom:8px;opacity:0;transform:translateY(10px)}.dp.on .pds{animation:pU .6s cubic-bezier(.19,1,.22,1) .35s forwards}
+        .pnt{background:linear-gradient(135deg,rgba(160,120,69,.04),rgba(160,120,69,.01));border:1px solid rgba(160,120,69,.1);border-radius:16px;padding:16px 20px;margin-bottom:20px;text-align:center;opacity:0;transform:translateY(12px)}.dp.on .pnt{animation:pU .6s cubic-bezier(.19,1,.22,1) .4s forwards}
+        .pnt-t{font-family:'Cairo',sans-serif;font-size:.82rem;font-weight:800;color:var(--dk);line-height:1.5;margin-bottom:8px}
+        .pnt-h{font-family:'Cairo',sans-serif;font-size:.7rem;font-weight:800;color:var(--gold);letter-spacing:1px;display:inline-block;padding:6px 18px;background:linear-gradient(135deg,#FFFCF5,#FFF8EB);border-radius:8px;border:1px solid rgba(160,120,69,.10)}
+        .pnt-custom{border:1px dashed var(--gold);background:linear-gradient(135deg,rgba(160,120,69,.05),rgba(255,255,255,0))}
+        .pdc{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:24px;opacity:0}.dp.on .pdc{animation:pIs .5s ease .45s forwards}
+        .pdl{width:0;height:1.5px;background:var(--gold);transition:width .6s cubic-bezier(.19,1,.22,1) .5s}.dp.on .pdl{width:50px}
+        .pdd{width:7px;height:7px;background:var(--gold);transform:rotate(45deg) scale(0);transition:transform .4s cubic-bezier(.34,1.56,.64,1) .5s}.dp.on .pdd{transform:rotate(45deg) scale(1)}
+        .ppr{font-family:'Cairo',sans-serif;font-weight:800;font-size:1.8rem;color:var(--gold-d);opacity:0;transform:translateY(12px);margin-bottom:24px}.dp.on .ppr{animation:pU .6s cubic-bezier(.19,1,.22,1) .5s forwards}
+        .ppb{display:inline-block;background:linear-gradient(135deg,#FFFCF5,#FFF8EB);padding:12px 40px;border-radius:12px;border:1px solid rgba(160,120,69,.08);box-shadow:0 4px 15px rgba(160,120,69,.06)}
+        .pvs{display:none;flex-direction:column;gap:12px;width:100%;max-width:320px;margin:0 auto;opacity:0;transform:translateY(12px)}.dp.on .pvs{display:flex;animation:pU .6s cubic-bezier(.19,1,.22,1) .55s forwards}
+        .pvi{display:flex;justify-content:space-between;align-items:center;background:#fff;padding:14px 16px;border-radius:12px;border:1px solid var(--bd);transition:background .2s;box-shadow:0 2px 10px rgba(0,0,0,0.02)}
+        .pvi:hover{background:rgba(255,255,255,.9)}.pvn{font-family:'Cairo',sans-serif;font-weight:700;font-size:.95rem;color:var(--dk)}.pvpr{font-family:'Cairo',sans-serif;font-weight:800;font-size:1.05rem;color:var(--gold-d)}
+        .pvr{display:flex;justify-content:space-between;align-items:center;background:#fff;padding:12px 16px;border-radius:12px;border:1px solid var(--bd);box-shadow:0 2px 10px rgba(0,0,0,0.02)}
+        .vfn{font-family:'Amiri',serif;font-size:1.2rem;font-weight:700;color:var(--dk);flex:1;text-align:right;margin-left:8px}
+        .vpc{display:flex;gap:10px}.vpb{display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(255,255,255,.8);border:1px solid rgba(160,120,69,.12);border-radius:10px;padding:5px 12px;min-width:60px}
+        .vsl{font-size:.65rem;color:var(--t2);margin-bottom:2px}.vpv{font-weight:800;color:var(--gold-d);font-size:.95rem}
+        .pvs-center{gap:10px}.pvs-center .pvi{justify-content:center;gap:10px;background:#fff;border:1px solid var(--bd)}.pvs-center .pvn{text-align:center;font-family:'Amiri',serif;font-size:1.2rem;color:var(--dk)}.pvs-center .pvpr{font-size:.95rem;color:var(--gold-d)}.pvs-center .sep{color:var(--t3);font-size:.85rem}
+        @keyframes pU{to{opacity:1;transform:translateY(0)}}@keyframes pIs{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+        .dp.cl .pna,.dp.cl .pni,.dp.cl .pds,.dp.cl .pdc,.dp.cl .ppr,.dp.cl .pvs,.dp.cl .pnt{animation:pO .15s ease forwards}.dp.cl .pdl{width:0!important;transition:width .15s}
+        @keyframes pO{to{opacity:0;transform:translateY(-8px)}}
+        
+        @media(min-width:768px){
+            .grd{grid-template-columns:repeat(4,1fr);gap:24px;padding:20px 20px 80px}.fc{justify-content:center;gap:12px;padding:0 20px}.fb{padding:12px 28px;font-size:.85rem}.sti{font-size:3rem}.ib{height:290px}.bdy{padding:20px 16px 24px}.nar{font-size:1.35rem}.nen{font-size:.7rem}.prc{font-size:1.05rem}.cbp{font-size:.8rem}.card{border-radius:26px}.card.is-box{border-radius:28px}.dp{left:50%;right:auto;width:550px;transform:translate(-50%,100%);border-radius:32px 32px 0 0}.dp.on{transform:translate(-50%,0)}.dp.cl{transform:translate(-50%,100%)}.pic{height:380px;max-height:380px}.pna{font-size:3rem}.pinf{padding:40px 32px 80px}.mg{font-size:7rem}.cbox{padding:50px 90px}
+        }
+        
+        /* ===== Premium Professional Footer ===== */
+        .mft{position:relative;z-index:10;text-align:center;padding:100px 20px 60px;background:linear-gradient(180deg,#FFFDF8 0%,#F5F0E6 100%);border-top:1px solid var(--bd);margin-top:50px}
+        .mft::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+        .mfl{font-family:'Cinzel',serif;font-size:3rem;font-weight:900;color:var(--espresso);letter-spacing:10px;margin-bottom:10px}
+        .mfi{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold-s);font-style:italic;letter-spacing:3px;margin-bottom:30px}
+        .mfd{width:50px;height:2px;background:linear-gradient(90deg,#009246 33%,var(--gold) 33%,var(--gold) 66%,#CE2B37 66%);margin:0 auto 50px;border-radius:2px}
+        .mft-grid{display:grid;grid-template-columns:1fr;gap:50px;max-width:1000px;margin:0 auto 50px}
+        @media(min-width:768px){.mft-grid{grid-template-columns:repeat(3,1fr);text-align:center}}
+        .mft-col h4{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--espresso);margin-bottom:20px;font-weight:700;position:relative;display:inline-block;padding-bottom:10px}
+        .mft-col h4::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:40px;height:2px;background:var(--gold)}
+        .mft-col p, .mft-col a{font-family:'Cairo',sans-serif;font-size:.95rem;color:var(--t2);line-height:1.8;text-decoration:none;display:block;transition:color .2s}
+        .mft-col a:hover{color:var(--gold-d)}
+        .mft-phone{font-family:'Cairo',sans-serif;font-size:1.8rem;font-weight:800;color:var(--espresso)!important;letter-spacing:2px;margin-bottom:20px;display:block}
+        .mft-call-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff!important;padding:12px 30px;border-radius:35px;font-weight:700;font-size:.9rem;box-shadow:0 8px 20px rgba(37,211,102,.3);transition:transform .2s, box-shadow .2s}
+        .mft-call-btn:hover{transform:translateY(-3px);box-shadow:0 12px 25px rgba(37,211,102,.4)}
+        .mft-call-btn svg{width:20px;height:20px;fill:#fff}
+        .mft-social{display:flex;justify-content:center;gap:18px;margin-top:25px}
+        .mft-social a{width:46px;height:46px;border-radius:50%;background:#fff;border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;color:var(--gold);transition:all .3s ease;box-shadow:0 4px 12px rgba(0,0,0,0.04)}
+        .mft-social a:hover{background:var(--gold);color:#fff;transform:translateY(-5px);box-shadow:0 10px 20px rgba(160,120,69,.3)}
+        .mft-social svg{width:20px;height:20px;fill:currentColor}
+        .mft-hours span{font-weight:700;color:var(--espresso)}
+        .mft-delivery{display:inline-block;margin-top:15px;background:linear-gradient(135deg,rgba(46,139,87,.1),rgba(60,179,113,.05));color:#2E8B57;border:1px solid rgba(46,139,87,.2);padding:8px 28px;border-radius:30px;font-family:'Cairo';font-weight:700;font-size:.85rem}
+        .mft-copy{font-size:.8rem;color:var(--t3);margin-top:40px;letter-spacing:1px;border-top:1px solid var(--bd);padding-top:30px}
+        
+        /* Floating WhatsApp Button */
+        .fab-wa{position:fixed;bottom:30px;right:30px;z-index:800;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 25px rgba(37,211,102,.5);animation:fab-pulse 2s infinite;transition:transform .2s}
+        .fab-wa:hover{transform:scale(1.1)}
+        .fab-wa svg{width:32px;height:32px;fill:#fff}
+        @keyframes fab-pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 20px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+    </style>
+</head>
+<body>
+<canvas id="bg-canvas"></canvas><div class="bg-t"></div><div class="bg-g"></div><div class="bg-grain"></div>
+
+<header class="hero">
+    <img src="backg.webp" alt="KH Il Vostro Caffe Facade" class="hero-i">
+    <div class="hero-g"></div>
+    <div class="cbox">
+        <div class="mg">KH</div>
+        <div class="yr">EST. 2025</div>
+        <div class="itd"></div>
+        <div class="hero-tagline">IL VOSTRO CAFFE & DOLCE</div>
+    </div>
+    <div class="hero-scroll">
+        <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2V6.83l3.59 3.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L12.7 2.7a.996.996 0 0 0-1.41 0L4.7 8.99c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L10 6.83V20c0 1.1.9 2 2 2z" transform="rotate(180 12 12)"/></svg>
+        Menu
+    </div>
+</header>
+
+<div style="position:relative;z-index:10">
+<nav class="fbar"><div class="fc">
+<button class="fb on" onclick="fD('all',this)"><span class="ar">الكل</span><span class="it">Tutti</span></button>
+<button class="fb" onclick="fD('hotcoffee',this)"><span class="ar">قهوة وشاي ساخن</span><span class="it">Caffè e Tè Caldo</span></button>
+<button class="fb" onclick="fD('coldcoffee',this)"><span class="ar">قهوة وشاي بارد</span><span class="it">Caffè e Tè Freddo</span></button>
+<button class="fb" onclick="fD('juices',this)"><span class="ar">العصائر</span><span class="it">Succi</span></button>
+<button class="fb" onclick="fD('tropical',this)"><span class="ar">تروبيكال</span><span class="it">Tropical</span></button>
+<button class="fb" onclick="fD('smoothieshake',this)"><span class="ar">سموثي وميلك شيك</span><span class="it">Frullati e Milkshake</span></button>
+<button class="fb" onclick="fD('mojito',this)"><span class="ar">الموخيتو</span><span class="it">Mojito</span></button>
+<button class="fb" onclick="fD('frappe',this)"><span class="ar">الفربي</span><span class="it">Frappé</span></button>
+<button class="fb" onclick="fD('slush',this)"><span class="ar">السلاش</span><span class="it">Slush</span></button>
+<button class="fb" onclick="fD('breakfast',this)"><span class="ar">إفطار صباحي</span><span class="it">Colazione</span></button>
+<button class="fb" onclick="fD('eveningbox',this)"><span class="ar">بوكس مسائي</span><span class="it">Box Serale</span></button>
+<button class="fb" onclick="fD('dolci',this)"><span class="ar">الحلويات</span><span class="it">Dolci</span></button>
+</div></nav>
+<main class="grd" id="grid"></main>
+
+<!-- Professional Footer -->
+<footer class="mft">
+    <div class="mfl">KH</div>
+    <div class="mfi">IL VOSTRO CAFFE & DOLCE</div>
+    <div class="mfd"></div>
+    
+    <div class="mft-grid">
+        <!-- Location -->
+        <div class="mft-col">
+            <h4>موقعنا</h4>
+            <p>الزاوية، ليبيا</p>
+            <p>مقابل مدرسة عثمان بن عفان</p>
+        </div>
+        
+        <!-- Contact -->
+        <div class="mft-col">
+            <h4>تواصل معنا</h4>
+            <a href="tel:0914041333" class="mft-phone">091 404 1333</a>
+            <a href="https://wa.me/218914041333" target="_blank" class="mft-call-btn">
+                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.693.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-D1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                اطلب الآن عبر واتساب
+            </a>
+            <div class="mft-social">
+                <a href="https://wa.me/218914041333" target="_blank" aria-label="WhatsApp">
+                    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.693.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/kh_caffe_car.wash?igsh=b2oyYTNvMHhlZmVr" target="_blank" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </a>
+                <a href="https://www.facebook.com/share/198NMEVky1/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@kh_car_wash?_r=1&_t=ZN-98YSj4m8hr0" target="_blank" aria-label="TikTok">
+                    <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Opening Hours -->
+        <div class="mft-col mft-hours">
+            <h4>أوقات العمل</h4>
+            <p><span>السبت - الخميس:</span></p>
+            <p>8:00 صباحاً - 12:00 منتصف الليل</p>
+            <p style="margin-top:15px"><span>الجمعة:</span></p>
+            <p>4:00 مساءً - 12:00 منتصف الليل</p>
+        </div>
+    </div>
+    
+    <div class="mft-copy">© 2025 KH IL VOSTRO CAFFE. جميع الحقوق محفوظة.</div>
+</footer>
+
+</div>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/218914041333" target="_blank" class="fab-wa" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.693.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<div class="dba" id="dB" onclick="cD()"></div>
+<div class="dp" id="dP"><div class="phd"></div><button class="pcl" onclick="cD()">✕</button><div class="pic"><img id="pI" src="" alt="" class="pim"></div><div class="pinf"><div class="pna" id="pAr"></div><div class="pni" id="pIt"></div><div class="pds" id="pDs" style="display:none"></div><div class="pnt" id="pNt" style="display:none"></div><div class="pdc"><div class="pdl"></div><div class="pdd"></div><div class="pdl"></div></div><div class="ppr" id="pPC"><span class="ppb" id="pP"></span></div><div id="pVs" class="pvs"></div></div></div>
+
+<script>
+const cv=document.getElementById('bg-canvas'),cx=cv.getContext('2d');let pts=[],mx=-500,my=-500;
+function rsC(){cv.width=innerWidth;cv.height=innerHeight}
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+document.addEventListener('touchmove',e=>{if(e.touches[0]){mx=e.touches[0].clientX;my=e.touches[0].clientY}},{passive:true});
+class P{constructor(){this.rs(true)}rs(i){this.x=Math.random()*cv.width;this.y=i?Math.random()*cv.height:cv.height+Math.random()*60;this.rd=Math.random()*40+12;this.bsy=Math.random()*.3+.12;this.sy=this.bsy;this.sx=(Math.random()-.5)*.15;this.o=Math.random()*.04+.01;this.bo=this.o;const c=['160,120,69','200,180,160','198,156,109'];this.c=c[Math.floor(Math.random()*c.length)];this.ps=Math.random()*.015+.004;this.po=Math.random()*Math.PI*2;this.t=0}u(){this.t+=this.ps;const dx=mx-this.x,dy=my-this.y,d=Math.sqrt(dx*dx+dy*dy);if(d<180){const f=(180-d)/180*.12;this.x-=dx*f*.008;this.y-=dy*f*.008}this.y-=this.sy;this.x+=this.sx+Math.sin(this.t+this.po)*.1;this.o=this.bo+Math.sin(this.t*2+this.po)*.01;if(this.y<-this.rd*2)this.rs(false)}d(){const r=Math.max(.1,this.rd);cx.beginPath();cx.arc(this.x,this.y,r,0,Math.PI*2);cx.fillStyle=`rgba(${this.c},${Math.max(0,this.o)})`;cx.fill()}}
+function iP(){pts=[];const n=Math.min(Math.floor(cv.width/30),40);for(let i=0;i<n;i++)pts.push(new P())}
+function aB(){cx.clearRect(0,0,cv.width,cv.height);pts.forEach(p=>{p.u();p.d()});requestAnimationFrame(aB)}
+addEventListener('resize',()=>{rsC();iP()});rsC();iP();aB();
+
+const SC={hotcoffee:{it:'Caffè e Tè Caldo',ar:'قهوة وشاي ساخن'},coldcoffee:{it:'Caffè e Tè Freddo',ar:'قهوة وشاي بارد'},juices:{it:'Succi',ar:'العصائر'},tropical:{it:'Tropical',ar:'تروبيكال',desc:'اختر مشروبك، وفوقه فواكه طازجة أو بانكيك.'},smoothieshake:{it:'Frullati e Milkshake',ar:'سموثي وميلك شيك'},mojito:{it:'Mojito',ar:'الموخيتو'},frappe:{it:'Frappé',ar:'الفربي'},slush:{it:'Slush',ar:'السلاش'},breakfast:{it:'Colazione',ar:'إفطار صباحي'},eveningbox:{it:'Box Serale',ar:'بوكس مسائي'},dolci:{it:'Dolci',ar:'الحلويات'}};
+const SUB={hot_coffee:{ar:'القهوة الساخنة',it:'Caffè Caldo'},hot_tea:{ar:'الشاي الساخن',it:'Tè Caldo'},hot_other:{ar:'مشروبات ساخنة أخرى',it:'Altre Bevande Calde'},matcha:{ar:'شاي الماتشا الياباني',it:'Tè Matcha Giapponese'},iced_tea:{ar:'الآيس تي',it:'Iced Tea'},iced_coffee:{ar:'القهوة الباردة',it:'Caffè Freddo'},tiramisu_cakes:{ar:'تيراميسو وكيك',it:'Tiramisù e Torte'},croissant_briosh:{ar:'بريوش',it:'Briosh'},pancake:{ar:'بانكيك',it:'Pancake'},crepe:{ar:'كريب',it:'Crepes'},other_sweets:{ar:'حلويات أخرى',it:'Altri Dolci'}};
+
+const HC=[{id:4,ar:"نسكافي عادية",it:"Nescafé Normale",prices:[{label:'صغير',price:'4 د.ل'},{label:'كبير',price:'6 د.ل'}],cat:"hotcoffee",sub:"hot_coffee",img:"nescafe.webp"},{id:5,ar:"قهوه ايطالية حليب",it:"Caffè Latte",price:"4 د.ل",cat:"hotcoffee",sub:"hot_coffee",img:"italianc.webp"},{id:6,ar:"نسكافي كامل",it:"Nescafé Completo",prices:[{label:'صغير',price:'8 د.ل'},{label:'كبير',price:'10 د.ل'}],cat:"hotcoffee",sub:"hot_coffee",img:"fullnescafe.webp"},{id:7,ar:"كابتيشنو",it:"Cappuccino",price:"5 د.ل",cat:"hotcoffee",sub:"hot_coffee",img:"capp.webp"},{id:903,ar:"قهوه عربيه",it:"Caffè Arabico",price:"4 د.ل",cat:"hotcoffee",sub:"hot_coffee",img:"arabicc.webp"},{id:901,ar:"شاي احمر مغربي او كيس ليبتون",it:"Tè Rosso Marocchino o Lipton",price:"3 د.ل",cat:"hotcoffee",sub:"hot_tea",img:"redtea.webp"},{id:902,ar:"شاي اخضر مغربي او ليبتون",it:"Tè Verde Marocchino o Lipton",price:"3 د.ل",cat:"hotcoffee",sub:"hot_tea",img:"greentea.webp"},{id:905,ar:"سحلب باللوز",it:"Sahlab con Mandorle",price:"9 د.ل",cat:"hotcoffee",sub:"hot_other",img:"sahlab.webp"},{id:906,ar:"هوت شوكليت",it:"Cioccolata Calda",price:"10 د.ل",cat:"hotcoffee",sub:"hot_other",img:"hotch.webp"}];
+const CC=[{id:402,ar:"ماتشا فراولة",it:"Matcha alla fragola",price:"20 د.ل",cat:"coldcoffee",sub:"matcha",img:"matchastrw.webp"},{id:402,ar:"ماتشا مانجو",it:"Matcha al mango",price:"20 د.ل",cat:"coldcoffee",sub:"matcha",img:"matcham2.webp"},{id:403,ar:"ماتشا فانيليا",it:"Matcha alla vaniglia",price:"20 د.ل",cat:"coldcoffee",sub:"matcha",img:"matchav.webp"},{id:405,ar:"ماتشا بحليب جوز الهند",it:"Matcha al latte di cocco",price:"22 د.ل",cat:"coldcoffee",sub:"matcha",img:"matcham.webp"},{id:406,ar:"ماتشا بالحليب",it:"Matcha al latte",price:"19 د.ل",cat:"coldcoffee",sub:"matcha",img:"matcham.webp"},{id:407,ar:"ماتشا مركزة",it:"Matcha concentrato",price:"26 د.ل",cat:"coldcoffee",sub:"matcha",img:"matchass.webp"},{id:911,ar:"آيس تي توت",it:"Tè freddo ai frutti di bosco",price:"12 د.ل",cat:"coldcoffee",sub:"iced_tea",img:"iceteablu.webp"},{id:912,ar:"آيس تي خوخ",it:"tè freddo alla pesca",price:"12 د.ل",cat:"coldcoffee",sub:"iced_tea",img:"icetea.webp"},{id:913,ar:"آيس تي لافندر",it:"Tè freddo alla lavanda",price:"12 د.ل",cat:"coldcoffee",sub:"iced_tea",img:"icetealav.webp"},{id:914,ar:"آيس تي ليمون ونعناع",it:"Tè freddo al limone e menta",price:"12 د.ل",cat:"coldcoffee",sub:"iced_tea",img:"icetealem.webp"},{id:915,ar:"آيس تي باشن فروت",it:"Tè freddo al frutto della passione",price:"12 د.ل",cat:"coldcoffee",sub:"iced_tea",img:"iceteaba.webp"},{id:9,ar:"آيس لاتيه",it:"Caffè Freddo Italiano",price:"14 د.ل",cat:"coldcoffee",sub:"iced_coffee",img:"icedlate.webp"},{id:10,ar:"آيس بستاشيو لاتيه",it:"Caffè Freddo al Pistacchio",price:"15 د.ل",cat:"coldcoffee",sub:"iced_coffee",img:"icedpis.webp"},{id:260,ar:"ايس كافي فانيليا",it:"Caffè Vanilla Freddo",price:"15 د.ل",cat:"coldcoffee",sub:"iced_coffee",img:"icedcramel.webp"},{id:261,ar:"ايس كافي فراولة",it:"Caffè Fragola Freddo",price:"14 د.ل",cat:"coldcoffee",sub:"iced_coffee",img:"iceds.webp"},{id:11,ar:"فرابيتشينو",it:"Frappuccino",cat:"coldcoffee",sub:"iced_coffee",img:"frapp3.webp",variants:[{name:"كلاسيك",price:"12 د.ل"},{name:"كراميل",price:"16 د.ل"}]}];
+const JU=[{id:1,ar:"عصير مانجو",it:"Succo di mango",cat:"juices",img:"mangoj.webp",variants:[{name:"كوب",price:"9 د.ل"},{name:"لتر",price:"20 د.ل"}]},{id:73,ar:"عصير مانجو وفراولة",it:"Succo di Mango e Fragola",cat:"juices",img:"mangos.webp",variants:[{name:"كوب",price:"8 د.ل"}]},{id:32,ar:"عصير فراولة",it:"Succo di Fragola",cat:"juices",img:"strw.webp",variants:[{name:"كوب",price:"7 د.ل"},{name:"لتر",price:"17 د.ل"}]},{id:29,ar:"عصير كوكتيل",it:"Succo di Cocktail",cat:"juices",img:"koktail.webp",variants:[{name:"كوب صغير",price:"10 د.ل"},{name:"لتر",price:"20 د.ل"}]},{id:74,ar:"عصير اناناس",it:"Succo di Ananas",cat:"juices",img:"an.webp",variants:[{name:"كوب",price:"12 د.ل"},{name:"لتر",price:"30 د.ل"}]},{id:104,ar:"عصير أناناس وجوز الهند",it:"Succo di ananas e cocco",cat:"juices",img:"an.webp",variants:[{name:"كوب",price:"14 د.ل"}]},{id:72,ar:"عصير عنب",it:"Succo di Uva",cat:"juices",img:"grape.webp",variants:[{name:"كوب",price:"10 د.ل"},{name:"لتر",price:"28 د.ل"}]},{id:35,ar:"عصير برتقال",it:"Succo di Arancia",cat:"juices",img:"orange.webp",variants:[{name:"كوب",price:"8 د.ل"},{name:"لتر",price:"18 د.ل"}]},{id:2,ar:"ليمون بالنعناع",it:"Limone e Menta",cat:"juices",img:"lemon2.webp",variants:[{name:"كوب",price:"8 د.ل"},{name:"لتر",price:"16 د.ل"}]},{id:602,ar:"افوكادو",it:"Avocado",price:"28 د.ل",cat:"juices",img:"avocado.webp"},{id:30,ar:"فروتا",it:"Fruita",cat:"juices",img:"fruita.webp",variants:[{name:"كوب",price:"10 د.ل"}]},{id:37,ar:"جوافة وبنجر",it:"Guava e Barbabietola",cat:"juices",img:"gwafab.webp",variants:[{name:"كوب",price:"8 د.ل"}]},{id:75,ar:"عصير جوافة",it:"Succo di Guava",cat:"juices",img:"gwafa.webp",variants:[{name:"كوب",price:"8 د.ل"},{name:"لتر",price:"18 د.ل"}]}];
+const TR=[{id:601,ar:"تروبيكال مانجو",it:"Tropical Mango",price:"45 د.ل",cat:"tropical",img:"tro3.webp"},{id:603,ar:"تروبيكال افوكادو",it:"Tropical Avocado",price:"65 د.ل",cat:"tropical",img:"tro2.webp"},{id:604,ar:"تروبيكال اناناس وجوز الهند",it:"Tropical Ananas e Cocco",price:"45 د.ل",cat:"tropical",img:"tro1.webp"},{id:605,ar:"تروبيكال فراولة",it:"Tropical Fragola",price:"49 د.ل",cat:"tropical",img:"trs.webp"}];
+const SMSH=[{id:305,ar:"توت",it:"Frutti di bosco",cat:"smoothieshake",img:"milkbl.webp",variants:[{name:"سموثي كوب",price:"11 د.ل"},{name:"سموثي لتر",price:"26 د.ل"},{name:"شيك كوب",price:"15 د.ل"},{name:"شيك لتر",price:"35 د.ل"}]},{id:503,ar:"كيندر",it:"Kinder",cat:"smoothieshake",img:"milnk.webp",variants:[{name:"شيك كوب",price:"15 د.ل"},{name:"شيك لتر",price:"35 د.ل"}]},{id:502,ar:"أوريو",it:"Oreo",cat:"smoothieshake",img:"milk.webp",variants:[{name:"شيك كوب",price:"14 د.ل"},{name:"شيك لتر",price:"32 د.ل"}]},{id:501,ar:"نيوتيلا",it:"Nutella",cat:"smoothieshake",img:"milnk.webp",variants:[{name:"شيك كوب",price:"12 د.ل"},{name:"شيك لتر",price:"28 د.ل"}]},{id:506,ar:"بستاشيو",it:"Pistacchio",cat:"smoothieshake",img:"milkp.webp",variants:[{name:"شيك كوب",price:"15 د.ل"},{name:"شيك لتر",price:"35 د.ل"}]}];
+const MJ=[{id:101,ar:"موخيتو علكة",it:"Mojito alla gomma",price:"9 د.ل",cat:"mojito",img:"moje.webp"},{id:102,ar:"موخيتو فراولة",it:"Mojito alla fragola",price:"9 د.ل",cat:"mojito",img:"mojs.webp"},{id:103,ar:"موخيتو ليمون ونعناع",it:"Mojito al limone e menta",price:"9 د.ل",cat:"mojito",img:"mojl.webp"}];
+const FR=[{id:62,ar:"فربي فراولة",it:"Frappé alla fragola",price:"8 د.ل",cat:"frappe",img:"frobys.webp"},{id:63,ar:"فربي موز",it:"Frappé alla banana",price:"8 د.ل",cat:"frappe",img:"fr1.webp"},{id:108,ar:"فربي تمر ولوز",it:"Frappé di datteri e mandorle",price:"9 د.ل",cat:"frappe",img:"frobytmr.webp"},{id:109,ar:"فربي فراولة ومانجا",it:"Frappé alla fragola e mango",price:"9 د.ل",cat:"frappe",img:"frobyms.webp"},{id:110,ar:"فربي مانجا",it:"Frappé al mango",price:"8 د.ل",cat:"frappe",img:"frobym.webp"}];
+const SL=[{id:105,ar:"سلاش فواكه",it:"Slush di frutta",price:"17 د.ل",cat:"slush",img:"sl2.webp"},{id:110,ar:"سلاش مانجو وعلكة 500ml",it:"Slush mango e gomma",price:"15 د.ل",cat:"slush",img:"sl1.webp"},{id:111,ar:"سلاش مانجو وعلكة",it:"Slush mango e gomma",price:"10 د.ل",cat:"slush",img:"sl3.webp"},{id:112,ar:"سلاش مانجو وعلكة وفواكه",it:"Slush mango e gomma",price:"15 د.ل",cat:"slush",img:"sl4.webp"}];
+const BF=[{id:705,ar:"بوكس افطار ",it:"Box Mattino ",cat:"breakfast",img:"box1.webp",customBox:true,note:"أصنافك المفضلة · بنفس سعر القائمة"},{id:702,ar:"بوكس افطار ",it:"Colazione ",cat:"breakfast",img:"box2.webp",customBox:true,note:"أصنافك المفضلة · بنفس سعر القائمة"},{id:706,ar:"بوكس افطار جاهز",it:"Box Mattino",price:"18 د.ل",cat:"breakfast",img:"morbox2.webp"}];
+const EV=[{id:801,ar:"بوكس مسائي ",it:"Box Serale ",cat:"eveningbox",img:"evening3.webp",customBox:true,note:"أصنافك المفضلة · بنفس سعر القائمة"}];
+
+// ترتيب الحلويات: تيراميسو وكيك - بريوش - كريب - بانكيك - حلويات أخرى
+const DC=[
+    /* --- تيراميسو وكيك --- */
+    {id:50,ar:"تيراميسو لوتس",it:"Tiramisù al loto",price:"10 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"tira2.webp"},
+    {id:59,ar:"تيراميسو كلاسيك",it:"Tiramisù Classico",price:"10 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"tira1.webp"},
+    {id:51,ar:"تيراميسو بستاشيو",it:"Tiramisù al pistacchio",price:"18 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"tira3.webp"},
+    {id:52,ar:"تيراميسو اوريو",it:"Tiramisù all'Oreo",price:"18 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"tira4.webp"},
+    {id:77,ar:"كيكة مانجو حجم صغير",it:"Mango Cake Small",price:"8 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"mangocs.webp"},
+    {id:820,ar:"ليزي كات كيك حجم صغير",it:"Lazy Cat Cake Small",price:"10 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"lazy.webp"},
+    {id:79,ar:"كيكة بستاشيو",it:"Torta al Pistacchio",price:"12 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"pisc.webp"},
+    {id:78,ar:"كيكة شوكولاته",it:"torta al cioccolato",price:"12 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"choc.webp"},
+    {id:66,ar:"كيكة كندر حجم صغير",it:"Kinder Cake Small",price:"12 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"Kindercake2.webp"},
+    {id:772,ar:"كيكة مانجو حجم كبير  جرام",it:"Mango Cake Large 750g",price:"25 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"mangoc.webp"},
+    {id:821,ar:"ليزي كات كيك حجم كبير",it:"Lazy Cat Cake Large",price:"25 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"oreoc.webp"},
+    {id:81,ar:"كيكة كندر حجم كبير",it:"Torta Kinder Grande",price:"25 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"kindercake3.webp"},
+    {id:80,ar:"كيكة لوتس",it:"Torta al Lotus",price:"25 د.ل",cat:"dolci",sub:"tiramisu_cakes",img:"lutc.webp"},
+
+    /* --- بريوش --- */
+    {id:1011,ar:"بريوش ايطالي",it:"Briosh Italiano",price:"8 د.ل",cat:"dolci",sub:"croissant_briosh",img:"briosha.webp"},
+    {id:1019,ar:"بريوش شوكولاتة",it:"Briosh Cioccolato",price:"10 د.ل",cat:"dolci",sub:"croissant_briosh",img:"brioshc.webp"},
+    {id:1009,ar:"بريوش مكس فستق نيوتيلا",it:"Briosh Misto Pistacchio e Nutella",price:"12 د.ل",cat:"dolci",sub:"croissant_briosh",img:"brioshmix.webp"},
+    {id:1015,ar:"بريوش فواكه",it:"Briosh alla Frutta",price:"15 د.ل",cat:"dolci",sub:"croissant_briosh",img:"brioshf.webp"},
+    {id:1014,ar:"بريوش شوفان",it:"Briosh ai Cereali",price:"12 د.ل",cat:"dolci",sub:"croissant_briosh",img:"brioshoat.webp"},
+    {id:53,ar:"بريوش محقون",it:"Briosh Iniettato",price:"15 د.ل",cat:"dolci",sub:"croissant_briosh",img:"briosh2.webp"},
+    {id:1016,ar:"توستر",it:"Toast",price:"10 د.ل",cat:"dolci",sub:"croissant_briosh",img:"toaster.webp"},
+    {id:1017,ar:"بيكان",it:"Pecan",price:"10 د.ل",cat:"dolci",sub:"croissant_briosh",img:"bekan.webp"},
+
+    /* --- كريب --- */
+    {id:1101,ar:"كريب نيوتيلا ولوز وعسل",it:"Crepes Nutella, Mandorle e Miele",price:"25 د.ل",cat:"dolci",sub:"crepe",img:"crepenn.webp"},
+    {id:1102,ar:"كريب مكس",it:"Crepes Misto",price:"30 د.ل",cat:"dolci",sub:"crepe",img:"crepemix.webp"},
+    {id:1111,ar:"كريب مكس",it:"Crepes Misto",price:"30 د.ل",cat:"dolci",sub:"crepe",img:"crepemix2.webp"},
+    {id:1103,ar:"كريب دبي",it:"Crepes Dubai",price:"32 د.ل",cat:"dolci",sub:"crepe",img:"crepedu.webp"},
+    {id:1104,ar:"كريب نيوتيلا",it:"Crepes alla Nutella",price:"19 د.ل",cat:"dolci",sub:"crepe",img:"crepen.webp"},
+    {id:1105,ar:"كريب فواكه",it:"Crepes alla Frutta",price:"30 د.ل",cat:"dolci",sub:"crepe",img:"crepefru.webp"},
+    {id:1107,ar:"كريب رول نيوتيلا وفستق",it:"Crepes Roll Nutella e Pistacchio",price:"25 د.ل",cat:"dolci",sub:"crepe",img:"creprollnp.webp"},
+    {id:1108,ar:"كريب رول فواكه",it:"Crepes Roll alla Frutta",price:"30 د.ل",cat:"dolci",sub:"crepe",img:"creperollf.webp"},
+
+    /* --- بانكيك --- */
+    {id:1005,ar:"بانكيك فستق",it:"Pancake al Pistacchio",price:"20 د.ل",cat:"dolci",sub:"pancake",img:"pancpis.webp"},
+    {id:1004,ar:"بانكيك بوتس ونيوتيلا",it:"Pancake Lotus e Nutella",price:"20 د.ل",cat:"dolci",sub:"pancake",img:"pancakelu.webp"},
+    {id:1007,ar:"بانكيك بندق ونيوتيلا",it:"Pancake Nocciole e Nutella",price:"20 د.ل",cat:"dolci",sub:"pancake",img:"pa.webp"},
+    {id:1006,ar:"بانكيك نيوتيلا",it:"Pancake alla Nutella",price:"19 د.ل",cat:"dolci",sub:"pancake",img:"panc3.webp"},
+
+    /* --- حلويات أخرى --- */
+    {id:120,ar:"بسبوسة قشطة",it:"Basbousa con Panna",price:"5 د.ل",cat:"dolci",sub:"other_sweets",img:"basbosa2.webp"},
+    {id:122,ar:"بسبوسة شكلاطة",it:"Basbousa al Cioccolato",price:"5 د.ل",cat:"dolci",sub:"other_sweets",img:"basbosa.webp"},
+    {id:183,ar:"دونات",it:"Doughnut",price:"10 د.ل",cat:"dolci",sub:"other_sweets",img:"donat.webp"},
+    {id:184,ar:"سينابون",it:"Cinnabon",price:"10 د.ل",cat:"dolci",sub:"other_sweets",img:"cinnabon.webp"}
+];
+
+
+const ALL=[...HC,...CC,...JU,...TR,...SMSH,...MJ,...FR,...SL,...BF,...EV,...DC];
+const phS="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%23F5F1E9' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' font-family='Cairo' font-size='20' fill='%23A07845' text-anchor='middle' dy='.3em'%3EKH Caffe%3C/text%3E%3C/svg%3E";
+
+const grid = document.getElementById('grid');
+const dB = document.getElementById('dB');
+const dP = document.getElementById('dP');
+
+// Helper to format price block for a card
+function getPriceHTML(item) {
+    if (item.price) {
+        return `<span class="prc">${item.price}</span>`;
+    } else if (item.prices) {
+        return `<div class="po">${item.prices.map(p => `<div class="pt"><span class="sz">${p.label}</span> <span class="pv">${p.price}</span></div>`).join('')}</div>`;
+    } else if (item.variants) {
+        return `<span class="cbp">يبدأ من ${item.variants[0].price}</span>`;
+    } else if (item.customBox) {
+        return `<span class="cbp">${item.note}</span>`;
+    }
+    return '';
+}
+
+// Create HTML for a card
+function createCard(item) {
+    const boxClass = item.customBox ? 'is-box' : '';
+    const imgSrc = item.img || phS;
+    return `
+        <div class="card ${boxClass}" data-id="${item.id}" data-name="${item.ar}">
+            <div class="ib">
+                <img src="${imgSrc}" alt="${item.ar}" class="ci">
+            </div>
+            <div class="bdy">
+                <div class="nar">${item.ar}</div>
+                <div class="nen">${item.it}</div>
+                ${getPriceHTML(item)}
+            </div>
+        </div>
+    `;
+}
+
+// Render logic
+function renderGrid(cat) {
+    let html = '';
+    const secInfo = cat === 'all' ? {ar: 'القائمة الكاملة', it: 'Menu Completo'} : SC[cat];
+    if (!secInfo) return;
+
+    // Section Header
+    html += `
+        <div class="shd">
+            <div class="sti">${secInfo.ar}</div>
+            <div class="sta">${secInfo.it}</div>
+            <div class="so"><div class="sol"></div><div class="sod"></div><div class="sol"></div></div>
+        </div>
+    `;
+    
+    if (secInfo.desc) {
+        html += `<div class="sec-desc"><span>${secInfo.desc}</span></div>`;
+    }
+
+    if (cat === 'all') {
+        // Group by cat
+        Object.keys(SC).forEach(c => {
+            const catItems = ALL.filter(i => i.cat === c);
+            if (catItems.length === 0) return;
+            
+            // Main Category Header
+            html += `<div class="sub-hdr"><div class="sub-line"></div><div class="sub-badge"><div class="sub-ar" style="font-size:1.8rem;">${SC[c].ar}</div><div class="sub-it">${SC[c].it}</div></div><div class="sub-line right"></div></div>`;
+            
+            // Group by sub inside the category
+            const subGroups = {};
+            catItems.forEach(item => {
+                const s = item.sub || 'default';
+                if (!subGroups[s]) subGroups[s] = [];
+                subGroups[s].push(item);
+            });
+
+            Object.keys(subGroups).forEach(s => {
+                if (s !== 'default' && SUB[s]) {
+                    // Sub Category Header (smaller font size for distinction)
+                    html += `<div class="sub-hdr" style="margin:40px 0 20px;">
+                                <div class="sub-line"></div>
+                                <div class="sub-badge">
+                                    <div class="sub-ar" style="font-size:1.3rem;">${SUB[s].ar}</div>
+                                    <div class="sub-it">${SUB[s].it}</div>
+                                </div>
+                                <div class="sub-line right"></div>
+                             </div>`;
+                }
+                subGroups[s].forEach(item => {
+                    html += createCard(item);
+                });
+            });
+        });
+    } else {
+        const items = ALL.filter(i => i.cat === cat);
+        const subs = {};
+        items.forEach(item => {
+            const s = item.sub || 'default';
+            if (!subs[s]) subs[s] = [];
+            subs[s].push(item);
+        });
+
+        Object.keys(subs).forEach(s => {
+            if (s !== 'default' && SUB[s]) {
+                html += `<div class="sub-hdr"><div class="sub-line"></div><div class="sub-badge"><div class="sub-ar">${SUB[s].ar}</div><div class="sub-it">${SUB[s].it}</div></div><div class="sub-line right"></div></div>`;
+            }
+            subs[s].forEach(item => {
+                html += createCard(item);
+            });
+        });
+    }
+
+    grid.innerHTML = html;
+    
+    // Attach click events
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', () => {
+            const id = parseInt(card.dataset.id);
+            const name = card.dataset.name;
+            const item = ALL.find(i => i.id === id && i.ar === name);
+            if(item) openModal(item);
+        });
+    });
+}
+
+// Open Modal
+function openModal(item) {
+    document.body.classList.add('modal-active');
+    dB.classList.remove('cl');
+    dB.classList.add('on');
+    dP.classList.remove('cl');
+    dP.classList.add('on');
+    
+    document.getElementById('pI').src = item.img || phS;
+    document.getElementById('pAr').innerText = item.ar;
+    document.getElementById('pIt').innerText = item.it;
+    
+    const pDs = document.getElementById('pDs');
+    if (item.desc) { pDs.style.display = 'block'; pDs.innerText = item.desc; } else { pDs.style.display = 'none'; }
+    
+    const pNt = document.getElementById('pNt');
+    if (item.note) { 
+        pNt.style.display = 'block'; 
+        pNt.innerHTML = `<div class="pnt-t">${item.note}</div>`;
+        pNt.classList.add('pnt-custom');
+    } else { 
+        pNt.style.display = 'none'; 
+    }
+
+    const pPC = document.getElementById('pPC');
+    const pP = document.getElementById('pP');
+    const pVs = document.getElementById('pVs');
+
+    pPC.style.display = 'none';
+    pVs.style.display = 'none';
+    pVs.innerHTML = '';
+    pVs.classList.remove('pvs-center');
+
+    if (item.price) {
+        pPC.style.display = 'block';
+        pP.innerText = item.price;
+    } else if (item.prices) {
+        pVs.style.display = 'flex';
+        pVs.classList.add('pvs-center');
+        pVs.innerHTML = item.prices.map(p => `<div class="pvi"><span class="pvn">${p.label}</span><span class="pvpr">${p.price}</span></div>`).join('');
+    } else if (item.variants) {
+        pVs.style.display = 'flex';
+        pVs.innerHTML = item.variants.map(v => `<div class="pvr"><span class="vfn">${v.name}</span><div class="vpc"><div class="vpb"><span class="vsl">السعر</span><span class="vpv">${v.price}</span></div></div></div>`).join('');
+    } else if (item.customBox) {
+        pPC.style.display = 'block';
+        pP.innerText = 'حسب الاختيار';
+    }
+}
+
+// Close Modal
+function cD() {
+    document.body.classList.remove('modal-active');
+    dB.classList.add('cl');
+    dB.classList.remove('on');
+    dP.classList.add('cl');
+    dP.classList.remove('on');
+    
+    setTimeout(() => {
+        dB.classList.remove('cl');
+        dP.classList.remove('cl');
+    }, 600);
+}
+
+// Professional Category Filtering
+function fD(cat, btn) {
+    if (btn) {
+        document.querySelectorAll('.fb').forEach(b => b.classList.remove('on'));
+        btn.classList.add('on');
+    }
+    
+    // Smooth fade out
+    grid.style.opacity = '0';
+    grid.style.transform = 'translateY(15px)';
+    
+    setTimeout(() => {
+        renderGrid(cat);
+        // Smooth fade in
+        grid.style.opacity = '1';
+        grid.style.transform = 'translateY(0)';
+        
+        // Scroll to top of menu smoothly
+        const fbar = document.querySelector('.fbar');
+        if(fbar) window.scrollTo({ top: fbar.offsetTop - 20, behavior: 'smooth' });
+    }, 300);
+}
+
+// Initial load
+renderGrid('all');
+</script>
+</body>
+</html>
