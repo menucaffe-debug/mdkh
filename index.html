@@ -12,13 +12,11 @@
         *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{scroll-behavior:smooth}
         body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--dk);overflow-x:hidden;position:relative}
         
-        /* Premium Background Textures */
         #bg-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
         .bg-t{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23A07845' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
         .bg-g{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 20% 0%,rgba(160,120,69,.05) 0%,transparent 60%),radial-gradient(ellipse at 80% 100%,rgba(160,120,69,.04) 0%,transparent 50%)}
         .bg-grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.4;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");mix-blend-mode:multiply}
         
-        /* Hero Section */
         .hero{position:relative;width:100%;height:85vh;min-height:550px;overflow:hidden;z-index:5;display:flex;align-items:center;justify-content:center;padding-bottom:6vh}
         .hero-i{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;z-index:1}
         .hero-g{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(0,0,0,.2) 0%,rgba(0,0,0,0) 35%,rgba(0,0,0,.25) 70%,rgba(0,0,0,.85) 100%)}
@@ -42,26 +40,18 @@
         .fb span{position:relative;z-index:1}.fb .ar{font-size:.8rem}.fb .it{font-size:.62rem;font-weight:600;color:#999;opacity:.7}
         .fb.on{border-color:transparent;box-shadow:0 12px 30px rgba(160,120,69,.3);transform:scale(1.08)}.fb.on::before{opacity:1}.fb.on span{color:#fff}.fb.on .it{color:rgba(255,255,255,.9)}
         
-        .shd{grid-column:1/-1;text-align:center;padding:90px 0 20px;opacity:0;transform:translateY(15px);animation:hI .8s ease forwards}
-        @keyframes hI{to{opacity:1;transform:translateY(0)}}
-        .sti{font-family:'Amiri',serif;font-size:2.8rem;font-weight:600;font-style:italic;background:linear-gradient(135deg,var(--espresso),var(--gold-d));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:4px;margin-bottom:8px}        .sta{font-family:'Cairo',sans-serif;font-size:.9rem;font-weight:700;color:var(--gold-s);letter-spacing:5px;margin-bottom:18px;text-transform:uppercase}
-        .so{display:flex;align-items:center;justify-content:center;gap:14px}.sol{width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}.sod{width:8px;height:8px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;box-shadow:0 0 10px rgba(160,120,69,.4)}
-        
         .grd{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;padding:10px 16px 60px;max-width:1200px;margin:0 auto;position:relative;z-index:10;align-items:stretch;transition:opacity .3s ease, transform .3s ease;}
         .card{background:var(--cd);border:1px solid rgba(255,255,255,.6);border-radius:24px;overflow:hidden;box-shadow:var(--sh-s);cursor:pointer;display:flex;flex-direction:column;transition:transform .5s cubic-bezier(.4,0,.2,1),box-shadow .5s;opacity:0;transform:translateY(25px);animation:cI .6s ease forwards;position:relative;will-change:transform}
-        .card::before{content:'';position:absolute;inset:0;border-radius:24px;padding:1px;background:linear-gradient(135deg,rgba(160,120,69,.3),transparent);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .4s;z-index:1;pointer-events:none}
         .card:hover{transform:translateY(-10px);box-shadow:var(--sh-g)}
-        .card:hover::before{opacity:1}
         .card:active{transform:scale(.98)!important;transition-duration:.1s}
         @keyframes cI{to{opacity:1;transform:translateY(0)}}
         
-        .ib{width:100%;height:210px;background:linear-gradient(145deg,var(--cr),#EDE7DB);overflow:hidden;position:relative;box-shadow:inset 0 -20px 30px -20px rgba(0,0,0,.05)}
-        .ib::before{content:'';position:absolute;top:0;left:0;right:0;height:30%;background:linear-gradient(180deg,rgba(255,255,255,.1),transparent);z-index:3;pointer-events:none}
+        .ib{width:100%;height:210pxG;background:linear-gradient(145deg,var(--cr),#EDE7DB);overflow:hidden;position:relative}
         .ci{width:100%;height:100%;display:block;object-fit:cover;object-position:center center;transition:transform 1s cubic-bezier(.25,.46,.45,.94);filter:saturate(1.05) contrast(1.02)}
         .card:hover .ci{transform:scale(1.08)}
         
         .bdy{padding:16px 12px 18px;text-align:center;flex-grow:1;display:flex;flex-direction:column;justify-content:space-between;background:#fff;position:relative}
-        .nar{font-family:'Amiri',serif;font-size:1.2rem;font-weight:700;color:var(--dk);line-height:1.35;margin-bottom:2px}
+        .nar{font<-family:'Amiri',serif;font-size:1.2rem;font-weight:700;color:var(--dk);line-height:1.35;margin-bottom:2px}
         .nen{font-family:'Playfair Display',serif;font-size:.65rem;color:var(--t3);font-style:italic;text-transform:uppercase;margin-bottom:8px;letter-spacing:.5px}
         .prc{font-family:'Cairo',sans-serif;font-weight:800;color:var(--gold-d);font-size:1rem;background:linear-gradient(135deg,#FFFCF5,#FFF8EB);padding:10px 0;border-radius:12px;display:block;width:100%;border:1px solid rgba(160,120,69,.1);box-shadow:0 3px 8px rgba(0,0,0,0.02);margin-top:auto}
         
@@ -88,10 +78,9 @@
         .dba{position:fixed;inset:0;z-index:900;background:rgba(28,28,30,.4);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .4s}
         .dba.on{opacity:1;pointer-events:all}
         .dp{position:fixed;bottom:0;left:0;right:0;z-index:950;background:var(--wm);border-radius:32px 32px 0 0;max-height:92vh;overflow-y:auto;-webkit-overflow-scrolling:touch;transform:translateY(100%);transition:transform .6s cubic-bezier(.19,1,.22,1);opacity:0;box-shadow:0 -15px 80px rgba(0,0,0,.25);will-change:transform}
-        .dp::-webkit-scrollbar{display:none}.dp.on{transform:translateY(0);opacity:1}.dp.cl{transform:translateY(100%);opacity:0;transition-duration:.35s}
+        .dp::-webkit-scrollbar{display:none}.dp.on{transform:translateY(0);opacity:1}
         .phd{width:40px;height:4px;background:rgba(160,120,69,.15);border-radius:4px;margin:14px auto 0}
         .pcl{position:absolute;top:18px;left:18px;width:38px;height:38px;border-radius:50%;border:none;background:rgba(255,255,255,.95);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--dk);transition:all .3s;z-index:5;box-shadow:0 4px 15px rgba(0,0,0,0.08)}
-        .pcl:hover{background:var(--dk);color:#fff;transform:rotate(90deg)}
         .pic{width:100%;height:320px;max-height:45vh;background:linear-gradient(145deg,var(--cr),#E8E0D0);display:flex;align-items:center;justify-content:center;overflow:hidden;margin-top:6px;border-radius:32px 32px 0 0;position:relative}
         .pim{width:100%;height:100%;object-fit:cover;object-position:center center;transform:scale(.96);transition:transform 1s cubic-bezier(.25,.46,.45,.94) .15s;will-change:transform;filter:saturate(1.05) contrast(1.02)}.dp.on .pim{transform:scale(1)}
         .pinf{padding:24px 24px 60px;text-align:center}
@@ -112,41 +101,17 @@
         .pvn{font-family:'Cairo',sans-serif;font-weight:700;font-size:.95rem;color:var(--dk)}.pvpr{font-family:'Cairo',sans-serif;font-weight:800;font-size:1.05rem;color:var(--gold-d)}
         .pvs-center{gap:10px}.pvs-center .pvi{justify-content:center;gap:10px;background:#fff;border:1px solid var(--bd)}.pvs-center .pvn{text-align:center;font-family:'Amiri',serif;font-size:1.2rem;color:var(--dk)}.pvs-center .pvpr{font-size:.95rem;color:var(--gold-d)}.pvs-center .sep{color:var(--t3);font-size:.85rem}
         @keyframes pU{to{opacity:1;transform:translateY(0)}}@keyframes pIs{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
-        .dp.cl .pna,.dp.cl .pni,.dp.cl .pds,.dp.cl .pdc,.dp.cl .ppr,.dp.cl .pvs,.dp.cl .pnt{animation:pO .15s ease forwards}.dp.cl .pdl{width:0!important;transition:width .15s}
-        @keyframes pO{to{opacity:0;transform:translateY(-8px)}}
         
         @media(min-width:768px){
-            .grd{grid-template-columns:repeat(4,1fr);gap:24px;padding:20px 20px 80px}.fc{justify-content:center;gap:12px;padding:0 20px}.fb{padding:12px 28px;font-size:.85rem}.sti{font-size:3rem}.ib{height:290px}.bdy{padding:20px 16px 24px}.nar{font-size:1.35rem}.nen{font-size:.7rem}.prc{font-size:1.05rem}.card{border-radius:26px}.dp{left:50%;right:auto;width:550px;transform:translate(-50%,100%);border-radius:32px 32px 0 0}.dp.on{transform:translate(-50%,0)}.dp.cl{transform:translate(-50%,100%)}.pic{height:380px;max-height:380px}.pna{font-size:3rem}.pinf{padding:40px 32px 80px}.mg{font-size:7rem}.cbox{padding:50px 90px}
+            .grd{grid-template-columns:repeat(4,1fr);gap:24px;padding:20px 20px 80px}.fc{justify-content:center;gap:12px;padding:0 20px}.fb{padding:12px 28px;font-size:.85rem}.ib{height:290px}.bdy{padding:20px 16px 24px}.nar{font-size:1.35rem}.nen{font-size:.7rem}.prc{font-size:1.05rem}.card{border-radius:26px}.dp{left:50%;right:auto;width:550px;transform:translate(-50%,100%);border-radius:32px 32px 0 0}.dp.on{transform:translate(-50%,0)}.pic{height:380px;max-height:380px}.pna{font-size:3rem}.pinf{padding:40px 32px 80px}.mg{font-size:7rem}.cbox{padding:50px 90px}
         }
         
-        /* ===== Premium Professional Footer ===== */
         .mft{position:relative;z-index:10;text-align:center;padding:100px 20px 60px;background:linear-gradient(180deg,#FFFDF8 0%,#F5F0E6 100%);border-top:1px solid var(--bd);margin-top:50px}
-        .mft::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
         .mfl{font-family:'Cinzel',serif;font-size:3rem;font-weight:900;color:var(--espresso);letter-spacing:10px;margin-bottom:10px}
-        .m"font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold-s);font-style:italic;letter-spacing:3px;margin-bottom:30px}
-        .mfd{width:50px;height:2px;background:linear-gradient(90deg,#009246 33%,var(--gold) 33%,var(--gold) 66%,#CE2B37 66%);margin:0 auto 50px;border-radius:2px}
-        .mft-grid{display:grid;grid-template-columns:1fr;gap:50px;max-width:1000px;margin:0 auto 50px}
-        @media(min-width:768px){.mft-grid{grid-template-columns:repeat(3,1fr);text-align:center}}
-        .mft-col h4{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--espresso);margin-bottom:20px;font-weight:700;position:relative;display:inline-block;padding-bottom:10px}
-        .mft-col h4::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:40px;height:2px;background:var(--gold)}
-        .mft-col p, .mft-col a{font-family:'Cairo',sans-serif;font-size:.95rem;color:var(--t2);line-height:1.8;text-decoration:none;display:block;transition:color .2s}
-        .mft-col a:hover{color:var(--gold-d)}
-        .mft-phone{font-family:'Cairo',sans-serif;font-size:1.8rem;font-weight:800;color:var(--espresso)!important;letter-spacing:2px;margin-bottom:20px;display:block}
-        .mft-call-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff!important;padding:12px 30px;border-radius:35px;font-weight:700;font-size:.9rem;box-shadow:0 8px 20px rgba(37,211,102,.3);transition:transform .2s, box-shadow .2s}
-        .mft-call-btn:hover{transform:translateY(-3px);box-shadow:0 12px 25px rgba(37,211,102,.4)}
-        .mft-call-btn svg{width:20px;height:20px;fill:#fff}
-        .mft-social{display:flex;justify-content:center;gap:18px;margin-top:25px}
-        .mft-social a{width:46px;height:46px;border-radius:50%;background:#fff;border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;color:var(--gold);transition:all .3s ease;box-shadow:0 4px 12px rgba(0,0,0,0.04)}
-        .mft-social a:hover{background:var(--gold);color:#fff;transform:translateY(-5px);box-shadow:0 10px 20px rgba(160,120,69,.3)}
-        .mft-social svg{width:20px;height:20px;fill:currentColor}
-        .mft-hours span{font-weight:700;color:var(--espresso)}
+        .mfi{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold-s);font-style:italic;letter-spacing:3px;margin-bottom:30px}
         .mft-copy{font-size:.8rem;color:var(--t3);margin-top:40px;letter-spacing:1px;border-top:1px solid var(--bd);padding-top:30px}
-        
-        /* Floating WhatsApp Button */
-        .fab-wa{position:fixed;bottom:30px;right:30px;z-index:800;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 25px rgba(37,211,102,.5);animation:fab-pulse 2s infinite;transition:transform .2s}
-        .fab-wa:hover{transform:scale(1.1)}
+        .fab-wa{position:fixed;bottom:30px;right:30px;z-index:800;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 25px rgba(37,211,102,.5);transition:transform .2s}
         .fab-wa svg{width:32px;height:32px;fill:#fff}
-        @keyframes fab-pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 20px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
     </style>
 </head>
 <body>
@@ -159,10 +124,6 @@
         <div class="mg">KH</div>
         <div class="itd"></div>
         <div class="hero-tagline">IL VOSTRO CAFFE & DOLCE</div>
-    </div>
-    <div class="hero-scroll">
-        <svg viewBox="0 0 24 24"><path d="M12 22c.1.1 2-.9 2-2V6.83l3.59 3.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L12.7 2.7a.996.996 0 0 0-1.41 0L4.7 8.99c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L10 6.83V20c0 1.1.9 2 2 2z" transform="rotate(180 12 12)"/></svg>
-        Menu
     </div>
 </header>
 
@@ -182,26 +143,7 @@
 <button class="fb" onclick="fD('dolci',this)"><span class="ar">الحلويات</span><span class="it">Dolci</span></button>
 </div></nav>
 <main class="grd" id="grid"></main>
-
-<!-- Professional Footer -->
-<footer class="mft">
-    <div class="mfl">KH</div>
-    <div class="mfi">IL VOSTRO CAFFE & DOLCE</div>
-    <div class="mfd"></div>
-    <div class="mft-grid">
-        <div class="mft-col"><h4>موقعنا</h4><p>الزا%وية، ليبيا</p><p>مقابل مدرسة عثمان بن عفان</p></div>
-        <div class="mft-col">
-            <h4>تواصل معنا</h4>
-            <a href="tel:0914041333" class="mft-phone">091 404 1333</a>
-            <a href="https://wa.me/218914041333" target="_blank" class="mft-call-btn">
-                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709+6 1.262.489 1.693.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                اطلب الآن عبر واتساب
-            </a>
-        </div>
-        <div class="mft-col mft-hours"><h4>أوقات العمل</h4><p><span>السبت - الخميس:</span></p><p>8:00 صباحاً - 12:00 منتصف الليل</p><p style="margin-top:15px"><span>الجمعة:</span></p><p>4:00 مساءً - 12:00 منتصف الليل</p></div>
-    </div>
-    <div class="mft-copy">© 2025 KH IL VOSTRO CAFFE. جميع الحقوق محفوظة.</div>
-</footer>
+<footer class="mft"><div class="mfl">KH</div><div class="mfi">IL VOSTRO CAFFE & DOLCE</div><div class="mft-copy">© 2025 KH IL VOSTRO CAFFE. جميع الحقوق محفوظة.</div></footer>
 </div>
 
 <a href="https://wa.me/218914041333" target="_blank" class="fab-wa" aria-label="WhatsApp">
@@ -219,7 +161,7 @@
         <div class="pna" id="pAr"></div>
         <div class="pni" id="pIt"></div>
         <div class="pds" id="pDs" style="display:none"></div>
-        <div class="pnt" id="pNt" style"="display:none"></div>
+        <div class="pnt" id="pNt" style="display:none"></div>
         <div class="pdc"><div class="pdl"></div><div class="pdd"></div><div class="pdl"></div></div>
         <div class="ppr" id="pPC"><span class="ppb" id="pP"></span></div>
         <div id="pVs" class="pvs"></div>
@@ -237,70 +179,40 @@ function aB(){cx.clearRect(0,0,cv.width,cv.height);pts.forEach(p=>{p.u();p.d()})
 addEventListener('resize',()=>{rsC();iP()});rsC();iP();aB();
 
 const HC=[
-{id:4,ar:"نسكافي عادية",it:"Nescafé Normale",prices:[{label:'صغير',price:'4 د.ل'},{label:'كبير',price:'6 د.ل'}],cat:"hotcoffee",img:"nescafe.webp"},
+{id:4,ar:"نسكافي عادية",it:"Nescafé Normale",prices:[{label:'ص.غ',price:'4 د.ل'},{label:'كبير',price:'6 د.ل'}],cat:"hotcoffee",img:"nescafe.webp"},
 {id:5,ar:"قهوه ايطالية",it:"Caffè Latte",price:"4 د.ل",cat:"hotcoffee",img:"italianc.webp"},
-{id:6,ar:"نسكافي كامل",it:"Nescafé Completo",prices:[{label:'صغير',price:'7 د.ل'},{label:'كبير',price:'10 د.ل'}],cat:"hotcoffee",img:"fullnescafe.webp"},
 {id:7,ar:"كابتيشنو",it:"Cappuccino",price:"5 د.ل",cat:"hotcoffee",img:"capp.webp"},
-{id:903,ar:"قهوه عربيه",it:"Caffè Arabico",price:"4 د.ل",cat:"hotcoffee",img:"arabicc.webp"},
-{id:901,ar:"شاي احمر مغربي",it:"Tè Rosso Marocchino",price:"3 د.ل",cat:"hotcoffee",img:"redtea.webp"},
-{id:902,ar:"شاي اخضر مغربي",it:"Tè Verde Marocchino",price:"3 د.ل",cat:"hotcoffee",img:"greentea.webp"},
-{id:104,ar:"شاي ماتشا سكر معدل",it:"Matcha con zucchero regolato",price:"10 د.ل",cat:"hotcoffee",img:"hotmatcha.webp"},
-{id:905,ar:"سحلب باللوز والشامية",it:"Sahlab con Mandorle",price:"12 د.ل",cat:"hotcoffee",img:"sahlab.webp"},
-{id:103,ar:"سحلب عادي",it:"Sahlab Normale",price:"10 د.ل",cat:"hotcoffee",img:"sahlb1.webp"},
-{id:906,ar:"هوت شوكليت",it:"Cioccolata Calda",price:"15 د.ل",cat:"hotcoffee",img:"hotch.webp"},
 {id:100,ar:"اسبريسو",it:"Espresso",price:"4 د.ل",cat:"hotcoffee",img:"esspreso1.webp"},
 {id:101,ar:"اسبريسو دبل",it:"Espresso Doppio",prices:[{label:'بدون ماء',price:'6 د.ل'},{label:'مع ماء',price:'7 د.ل'}],cat:"hotcoffee",img:"esspreso.webp"},
-{id:102,ar:"كافي أمريكانو",it:"Caffè Americano",price:"5 د.ل",desc:"يقدم مع ماء ساخن (Served with hot water)",cat:"hotcoffee",img:"amreco.webp"}
+{id:102,ar:"كافي أمريكانو",it:"Caffè Americano",price:"5 د.ل",desc:"يقدم مع ماء ساخن",cat:"hotcoffee",img:"amreco.webp"}
 ];
 const CC=[
 {id:402,ar:"ماتشا فراولة",it:"Matcha alla fragola",price:"20 د.ل",cat:"coldcoffee",img:"matchastrw.webp"},
-{id:403,ar:"ماتشا فانيليا",it:"Matcha alla vaniglia",price:"20 د.ل",cat:"coldcoffee",img:"matchav.webp"},
-{id:405,ar:"ماتشا بحليب جوز الهند",it:"Matcha al latte di cocco",price:"22 د.ل",cat:"coldcoffee",img:"matcham.webp"},
-{id:911,ar:"آيس تي توت",it:"Tè freddo ai frutti di bosco",price:"12 د.ل",cat:"coldcoffee",img:"iceteablu.webp"},
-{id:9,ar:"آيس لاتيه",it:"Caffè Freddo Italiano",price:"14 د.ل",cat:"coldcoffee",img:"icedlate.webp"},
-{id:10,ar:"آيس بستاشيو لاتيه",it:"Caffè Freddo al Pistacchio",price:"15 د.ل",cat:"coldcoffee",img:"icedpis.webp"},
+{id:9,ar:"آيس لاتيه",it:"Caffè Freddo@Do Italiano",price:"14 د.ل",cat:"coldcoffee",img:"icedlate.webp"},
 {id:11,ar:"فرابيتشينو",it:"Frappuccino",cat:"coldcoffee",img:"frapp3.webp",variants:[{name:"كلاسيك",price:"12 د.ل"},{name:"كراميل",price:"15 د.ل"}]}];
 const JU=[
 {id:1,ar:"عصير مانجو",it:"Succo di mango",cat:"juices",img:"mangoj.webp",variants:[{name:"كوب",price:"9 د.ل"},{name:"لتر",price:"20 د.ل"}]},
-{id:32,ar:"عصير فراولة",it:"Succo di Fragola",cat:"juices",img:"strw.webp",variants:[{name:"كوب",price:"7 د.ل"},{name:"لتر",price:"17 د.ل"}]},
-{id:29,ar:"عصير كوكتيل",it:"Succo di Cocktail",cat:"juices",img:"koktail.webp",variants:[{name:"كوب صغير",price:"10 د.ل"},{name:"لتر",price:"22 د.ل"}]},
-{id:2,ar:"ليمون بالنعناع",it:"Limone e Menta",cat:"juices",img:"lemon2.webp",variants:[{name:"كوب",price:"8 د.ل"},{name:"لتر",price:"16 د.ل"}]},
-{id:602,ar:"افوكادو",it:"Avocado",price:"28 د.ل",cat:"juices",img:"avocado.webp"}];
-const TR = [
-{id: 601,ar: "تروبيكال مانجو",it: "Tropical Mango",price: "45 د.ل",cat: "tropical",img: "tro3.webp",desc: "عصير مانجو او حسب الطلب مع صحن بانكيك وفواكه"},
-{id: 603,ar: "تروبيكال افوكادو",it: "Tropical Avocado",price: "65 د.ل",cat: "tropical",img: "tro2.webp",desc: "كوب نصف لتر افوكادو مع صحن فواكه مشكل حسب الطلب"}];
-const SMSH=[
-{id:302,ar:"توت (بلوبيري)",it:"Blueberries",cat:"smoothieshake",img:"smoothie.webp",variants:[{name:"كوب",price:"17 د.ل"},{name:"لتر",price:"35 د.ل"}]},
-{id:502,ar:"أوريو",it:"Oreo",cat:"smoothieshake",img:"milk.webp",variants:[{name:"كوب",price:"17 د.ل"},{name:"لتر",price:"36 د.ل"}]},
-{id:509,ar:"نيوتيلا",it:"Nutella",cat:"smoothieshake",img:"mn.webp",variants:[{name:"كوب",price:"17 د.ل"},{name:"لتر",price:"35 د.ل"}]}];
+{id:602,ar:"افوكEيو",it:"Avocado",price:"28 د.ل",cat:"juices",img:"avocado.webp"}];
+const TR = [{id: 601,ar: "تروبيكال مانجو",it: "Tropical Mango",price: "45 د.ل",cat: "tropical",img: "tro3.webp",desc: "عصير مانجو مع بانكيك"}];
+const SMSH=[{id:302,ar:"توت",it:"Blueberries",cat:"smoothieshake",img:"smoothie.webp",variants:[{name:"كوب",price:"17 د.ل"},{name:"لتر",price:"35 د.ل"}]}];
 const MJ=[{id:101,ar:"موخيتو علكة",it:"Mojito alla gomma",price:"12 د.ل",cat:"mojito",img:"moje.webp"}];
 const FR=[{id:62,ar:"فربي فراولة",it:"Frappé alla fragola",price:"8 د.ل",cat:"frappe",img:"frobys.webp"}];
 const SL=[{id:105,ar:"سلاش فواكه",it:"Slush di frutta",price:"17 د.ل",cat:"slush",img:"sl2.webp"}];
-= BF=[{id:705=05,ar:"بوكس افطار ",it:"Box Mattino ",cat:"breakfast",img:"box1.webp",customBox:true,note:"أصنافك المفضلة · بنفس سعر القائمة"}];
+const BF=[{id:705,ar:"بوكس افطار ",it:"Box Mattino ",cat:"breakfast",img:"box1.webp",customBox:true,note:"أصنافك المفضلة · بنفس سعر القائمة"}];
 const EV=[{id:801,ar:"بوكس مسائي ",it:"Box Serale ",cat:"eveningbox",img:"evening3.webp",customBox:true,note:"أصنافك المفضلة · بنفس سعر القائمة"}];
-const DC=[
-{id:50,ar:"تيراميسو لوتس",it:"Tiramisù al loto",price:"17 د.ل",cat:"dolci",img:"tira2.webp"},
-{id:59,ar:"تيراميسو كلاسيك",it:"Tiramisù Classico",price:"15 د.ل",cat:"dolci",img:"tira1.webp"},
-{id:81,ar:"كيكة كندر حجم كبير",it:"Torta Kinder Grande",price:"30 د.ل",cat:"dolci",img:"kindercake3.webp"},
-{id:80,ar:"كيكة لوتس",it:"Torta al Lotus",price:"25 د.ل",cat:"dolci",img:"lutc.webp"}];
+const DC=[{id:50,ar:"تيراميسو لوتس",it:"Tiramisù al loto",price:"17 د.ل",cat:"dolci",img:"tira2.webp"},{id:81,ar:"كيكة كندر",it:"Torta Kinder",price:"30 د.ل",cat:"dolci",img:"kindercake3.webp"}];
 
-// ==========================================
-// 1. دمج جميع الأصناف في مصفوفة واحدة
-// ==========================================
 const ALL_ITEMS = [...HC, ...CC, ...JU, ...TR, ...SMSH, ...MJ, ...FR, ...SL, ...BF, ...EV, ...DC];
 const grid = document.getElementById('grid');
 
-// ==========================================
-// 2. توليد الكروت وعرضها في الصفحة
-// ==========================================
 ALL_ITEMS.forEach((item, index) => {
     let priceHtml = '';
     if (item.price) priceHtml = item.price;
-    else if (item.prices) priceHtml = item.prices.map(p => p.label + ': ' + p.price).join(' - ');
-    else if (item.variants) price4Html = item.variants.map(v => v.name + ' ' + v.price).join(' - ');
+    else if (item.prices) priceHtml = item.prices.map(p => p.label + ' ' + p.price).join(' - ');
+    else if (item.variants) priceHtml = item.variants.map(v => v.name + ' ' + v.price).join(' - ');
     else if (item.customBox) priceHtml = 'صندوق مخصص';
 
-    const card = documentB.createElement('div');
+    const card = document.createElement('div');
     card.className = 'card';
     card.setAttribute('data-cat', item.cat);
     card.style.animationDelay = (index * 0.05) + 's';
@@ -317,46 +229,30 @@ ALL_ITEMS.forEach((item, index) => {
     grid.appendChild(card);
 });
 
-// ==========================================
-// 3. دالة الفلترة (لإظهار الأصناف حسب الق'سم)
-// ==========================================
 function fD(cat, btn) {
     document.querySelectorAll('.fb').forEach(b => b.classList.remove('on'));
     btn.classList.add('on');
     const cards = grid.querySelectorAll('.card');
-    
     grid.style.opacity = '0';
     grid.style.transform = 'translateY(15px)';
-    
     setTimeout(() => {
         cards.forEach(card => {
-            if(cat === 'all' || card.dataset.cat === cat) {
-                card.style.display = 'flex';
-            } else {
-                card.style.display = 'none';
-            }
+            card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'flex' : 'none';
         });
         grid.style.opacity = '1';
-        grid.style.transform =$ 'translateY(0)';
+        grid.style.transform = 'translateY(0)';
     }, 300);
 }
 
-// ==========================================
-// 4. دالة فتح النافذة الاحترافية (بدون تهنيج)
-// ==========================================
 function oD(item) {
     const dB = document.getElementById('dB');
     const dP = document.getElementById('dP');
     const pI = document.getElementById('pI');
     
-    // 1. حساب عرض شريط التمرير لمنع اهتزاز الصفحة
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
-
-    // 2. تفريغ الصورة القديمة لتفادي وميضها
     pI.removeAttribute('src');
     
-    // 3. تعبئة البيانات النصية
     document.getElementById('pAr').textContent = item.ar || '';
     document.getElementById('pIt').textContent = item.it || '';
     
@@ -368,72 +264,42 @@ function oD(item) {
     const pP = document.getElementById('pP');
     const pVs = document.getElementById('pVs');
     
-    // تنظيف مسبق
     pVs.innerHTML = '';
     pNt.style.display = 'none';
     pPC.style.display = 'none';
 
-    // 4. معالجة الملاحظات والبوكسات
     if (item.customBox && item.note) {
-        pNt.style.display = 'block';
-        pNt.className = 'pnt pnt-custom';
-        pNt.innerHTML = `<div class="pnt-t">${item.note}</div><div class="pnt-h">✦ صندوق مخصص ✦</div>`;
+        pNt.style.display = 'block'; pNt.className = 'pnt pnt-custom'; pNt.innerHTML = `<div class="pnt-t">${item.note}</div><div class="pnt-h">✦ صندوق مخصص ✦</div>`;
     } else if (item.note) {
-        pNt.style.display = 'block';
-        pNt.className = 'pnt';
-        pNt.innerHTML = `<div class="pnt-t">${item.note}</div>`;
+        pNt.style.display = 'block'; pNt.className = 'pnt'; pNt.innerHTML = `<div class="pnt-t">${item.note}</div>`;
     }
 
-    // 5. معالجة الأسعار والفاريants
     if (item.price) {
-        pPC.style.display = 'block';
-        pP.textContent = item.price;
+        pPC.style.display = 'block'; pP.textContent = item.price;
     } else if (item.prices) {
-        pPC.style.display = 'none';
-        pVs.className = 'pvs pvs-center';
-        item.prices.forEach(p => {
-            pVs.innerHTML += `<div class="pvi"><span class="pvn">${p.label}</span><span class="sep">•</span><span class="pvpr">${p.price}</span></div>`;
-        });
+        pPC.style.display = 'none'; pVs.className = 'pvs pvs-center';
+        item.prices.forEach(p => { pVs.innerHTML += `<div class="pvi"><span class="pvn">${p.label}</span><span class="sep">•</span><span class="pvpr">${p.price}</span></div>`; });
     } else if (item.variants) {
-        pPC.style.display = 'none';
-        pVs.className = 'pvs pvs-center';
-        item.variants.forEach(v => {
-            pVs.innerHTML += `<div class="pvi"><span class="pvn">${v.name}</span><span class="sep">•</span><span class="pvpr">${v.price}</span></div>`;
-        });
+        pPC.style.display = 'none'; pVs.className = 'pvs pvs-center';
+        item.variants.forEach(v => { pVs.innerHTML += `<div class="pvi"><span class="pvn">${v.name}</span><span class="sep">•</span><span class="pvpr">${v.price}</span></div>`; });
     }
 
-    // 6. تشغيل الانيميشن ثم تحميل الصورة
     requestAnimationFrame(() => {
         document.body.classList.add('modal-active');
-        dB.classList.add('on');
+        dB.classList.add!('on');
         dP.classList.add('on');
-        
-        // تحميل الصورة بعد 50 مللي ثانية من فتح النافذة لضمان عدم تجميد المعالج
-        setTimeout(() => {
-            if(item.img) pI.src = item.img;
-        }, 50);
+        setTimeout(() => { if(item.img) pI.src = item.img; }, 50);
     });
 }
 
-// ==========================================
-// 5. دالة إغلاق النافذة
-// ==========================================
 function cD() {
     const dB = document.getElementById('dB');
-    const d4P = document.getElementById('dP');
-    
-    // إزالة الكلاسات لتشغيل انيميشن الإغلاق
+    const dP = document.getElementById('dP');
     document.body.classList.remove('modal-active');
     dB.classList.remove('on');
     dP.classList.remove('on');
-    
-    // إزالة عرض شريط التمرير
     document.documentElement.style.setProperty('--scrollbar-width', '0px');
-    
-    // تنظيف الصورة بعد الإغلاق لتحرير ذاكرة الهاتف
-    setTimeout(() => {
-        document.getElementById('pI').removeAttribute('src');
-    }, 400);
+    setTimeout(() => { document.getElementById('pI').removeAttribute('src'); }, 400);
 }
 </script>
 </body>
