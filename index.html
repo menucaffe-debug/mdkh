@@ -803,10 +803,34 @@ function openModal(item) {
     // focus at that moment is still inside the sheet that was going away.
     if (!modalOpen && !reopening) lastFocused = document.activeElement;
 
+    const freshOpen = !modalOpen;
     modalOpen = true;
     dP.inert = false;              // the sheet is visible again — make it reachable
     dP.removeAttribute('aria-hidden');
     setBackgroundInert(true);      // block screen readers / Tab from reaching the page behind
+
+    /* ---- Stop the page behind JUMPING when the sheet opens/closes ----
+       `transform: scale(.96)` pivots around each element's own centre. In the
+       "الكل" tab the grid is ~20000px tall, so its centre sits ~10000px away
+       from the screen and the 4% shrink slid EVERYTHING you could see down by
+       ~270px — that was the lurch you saw when the popup closed. (A small
+       category is only ~2000px tall, so its jump was ~10px and went unnoticed.)
+       Pivot every tall block around the centre of the viewport instead: only
+       the zoom remains, nothing moves. The sticky filter bar is 60px tall and
+       already pivots on itself correctly, so it is left alone.
+       The category filter also leaves an inline `translateY(0)` on the grid
+       which would silently override this scale, so drop it — by now its
+       animation is long finished (openModal is blocked while `filtering`). */
+    if (freshOpen) {
+        ['.hero', '.grd', '.mft'].forEach(sel => {
+            const el = document.querySelector(sel);
+            if (!el) return;
+            el.style.transform = '';
+            el.style.transformOrigin =
+                `50% ${Math.round(window.innerHeight / 2 - el.getBoundingClientRect().top)}px`;
+        });
+    }
+
     document.body.classList.add('modal-active');
     lockScroll();
     dB.classList.remove('cl');
