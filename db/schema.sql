@@ -10,7 +10,13 @@
 --           البيانات نفسها، لا في الواجهة فقط.
 -- ============================================================================
 
-create extension if not exists pgcrypto;
+-- pgcrypto اختياري: gen_random_uuid() مدمج في PostgreSQL 13+ (وSupabase أحدث).
+-- نشغّله بأمان حتى لا يُفشل المخطط إن مُنع التثبيت في بعض البيئات.
+do $$
+begin
+  create extension if not exists pgcrypto;
+exception when others then null;
+end $$;
 
 -- ---------------------------------------------------------------------------
 -- 1) الحسابات والصلاحيات
@@ -28,7 +34,7 @@ create table if not exists public.profiles (
 );
 
 -- دوال مساعدة: تُتجاوز RLS عمدًا (security definer) لأنها مملوكة لـ postgres
--- وهي المسؤولة عن قراءة الدور دون تسبب في ت recursiveness.
+-- وهي المسؤولة عن قراءة الدور دون تسبب في تكرار الاستعلامات (recursion).
 create or replace function public.app_role()
 returns text language sql stable security definer set search_path = public as $$
   select coalesce((select role from public.profiles where id = auth.uid()), 'guest');
@@ -77,6 +83,11 @@ create trigger on_auth_user_created
 create or replace function public.profiles_guard()
 returns trigger language plpgsql as $$
 begin
+  -- العمليات الداخلية (security definer · محرر SQL) لا تُحاسَب هنا.
+  -- قيد «authenticated» يمنع فقط محاولة الترقية من المتصفح.
+  if current_user <> 'authenticated' then
+    return new;
+  end if;
   if new.role is distinct from old.role or new.active is distinct from old.active then
     if not public.is_admin() then
       raise exception 'غير مسموح بتغيير الصلاحيات';
@@ -99,7 +110,7 @@ begin
   select count(*) into n from public.profiles where role = 'admin';
   if n > 0 then return false; end if;
 
-  select id, email, raw_user_meta_data into r from auth.users where id = auth.uid();
+  select id, email, phone, raw_user_meta_data into r from auth.users where id = auth.uid();
 
   insert into public.profiles (id, full_name, phone, role)
   values (
@@ -108,8 +119,7 @@ begin
     coalesce(r.phone, r.raw_user_meta_data->>'phone'),
     'admin'
   )
-  on conflict (id) do update set role = 'admin'
-  where public.profiles.role <> 'admin';
+  on conflict (id) do update set role = 'admin';
 
   return true;
 end $$;
@@ -165,8 +175,13 @@ create table if not exists public.orders (
   updated_at     timestamptz not null default now()
 );
 
--- ابدأ الترقيم من 1001 لقراءة طلبات أقرب للواقع
-alter table public.orders alter column order_no restart with 1001;
+-- ابدأ الترقيم من 1001 لقراءة طلبات أقرب للواقع (لا يُعاد إن وُجدت طلبات)
+do $$
+begin
+  if not exists (select 1 from public.orders) then
+    execute 'alter table public.orders alter column order_no restart with 1001';
+  end if;
+end $$;
 
 create index if not exists idx_orders_created on public.orders(created_at desc);
 create index if not exists idx_orders_status  on public.orders(status, created_at desc);
@@ -258,9 +273,15 @@ create trigger trg_orders_discount before update on public.orders
 create or replace function public.orders_guard()
 returns trigger language plpgsql as $$
 begin
+  -- إعادة حساب الإجماليات تتم داخل القاعدة بحقوق صاحب الجدول
+  -- (security definer) — لا اعتراض عليها.
+  if current_user <> 'authenticated' then
+    return new;
+  end if;
   if public.is_admin() then return new; end if;
   if new.subtotal     is distinct from old.subtotal
   or  new.total       is distinct from old.total
+  or  new.discount    is distinct from old.discount
   or  new.order_no    is distinct from old.order_no
   or  new.customer_id is distinct from old.customer_id
   or  new.source      is distinct from old.source
@@ -302,6 +323,7 @@ declare
   v_name   text := nullif(trim(coalesce(p_name,'')), '');
   v_phone  text := nullif(trim(coalesce(p_phone,'')), '');
   v_it     jsonb;
+  v_row    record;
   v_item   record;
   v_price  numeric(10,2);
   v_label  text;
@@ -335,11 +357,22 @@ begin
      case when p_source='pos' then auth.uid() else null end)
   returning id, order_no into v_order, v_no;
 
-  foreach v_it in array select jsonb_array_elements(p_items)
+  -- نمرّ على عناصر السلة: [{id, qty, variant, note}]
+  for v_row in
+    select el from jsonb_array_elements(p_items) as t(el)
   loop
-    if jsonb_typeof(v_it) <> 'object'
-       or coalesce((v_it->>'qty')::integer, 0) < 1 then
+    v_it := v_row.el;
+
+    if jsonb_typeof(v_it) <> 'object' then
       continue;
+    end if;
+    -- qty يجب أن يكون رقمًا (يمنع أخطاء التحويل الخام)
+    if coalesce(v_it->>'qty', '') !~ '^[0-9]{1,9}$' then
+      continue;
+    end if;
+    -- id يجب أن يكون رقمًا أيضًا
+    if coalesce(v_it->>'id', '') !~ '^[0-9]{1,9}$' then
+      raise exception 'صنف غير صحيح في السلة';
     end if;
 
     select * into v_item
@@ -354,7 +387,8 @@ begin
 
     if v_item.price is not null then
       v_price := v_item.price;
-    elsif v_item.options is not null then
+    elsif v_item.options is not null and jsonb_typeof(v_item.options) = 'array'
+          and jsonb_array_length(v_item.options) > 0 then
       select coalesce((o->>'price')::numeric, 0) into v_price
         from jsonb_array_elements(v_item.options) o
        where coalesce(o->>'label', o->>'name') = v_label
@@ -389,11 +423,6 @@ begin
   if v_sub = 0 then
     delete from public.orders where id = v_order;
     raise exception 'تعذّر حساب سعر الطلب، تواصل مع المقهى';
-  end if;
-
-  if p_source = 'online' then
-    -- الطلب عبر الموقع لا يُدفع هنا: يُسوّى لاحقًا من الكاشير
-    null;
   end if;
 
   return jsonb_build_object(
@@ -433,8 +462,10 @@ create policy "profiles admin write" on public.profiles for update
   to authenticated using (public.is_admin()) with check (public.is_admin());
 
 -- menu_items -----------------------------------------------------------------
-drop policy if exists "menu read"     on public.menu_items;
-drop policy if exists "menu admin rw" on public.menu_items;
+drop policy if exists "menu read"          on public.menu_items;
+drop policy if exists "menu admin rw"      on public.menu_items;
+drop policy if exists "menu admin insert"  on public.menu_items;
+drop policy if exists "menu admin delete"  on public.menu_items;
 
 create policy "menu read" on public.menu_items for select
   using (active = true or public.is_staff());
@@ -497,7 +528,18 @@ create policy "audit staff write" on public.audit_log for insert
 -- دفاع في العمق: منع الكتابة المباشرة حتى بدون سياسة
 revoke insert, update, delete on public.orders      from anon, authenticated;
 revoke insert, update, delete on public.order_items from anon, authenticated;
-grant  select on public.orders, public.order_items  to authenticated;
+revoke insert, update, delete on public.payments, public.audit_log from anon;
+
+-- صلاحيات على مستوى الجدول — وفوقها RLS يحدّ الصفوف المسموح بها
+grant  select         on public.orders, public.order_items to authenticated;
+-- الكاشير يغيّر الحالة والدفع فقط؛ الحماية من التعديل المحرّم داخل orders_guard
+grant  update         on public.orders                     to authenticated;
+grant  select, insert on public.payments                   to authenticated;
+-- سجل التدقيق: الكاشير يكتب، والقراءة محصورة بالإدارة عبر RLS
+grant  select, insert on public.audit_log                  to authenticated;
+-- الإدارة تحدّث الحسابات (الدور/التفعيل) — RLS: للإدارة فقط
+grant  update         on public.profiles                   to authenticated;
+
 grant  select on public.menu_items, public.profiles to anon, authenticated;
 
 -- ---------------------------------------------------------------------------
@@ -557,6 +599,10 @@ where public.is_admin()
 group by p.id, p.full_name
 order by revenue desc;
 
+-- صلاحيات قراءة التقارير (الصفوف نفسها تحميها RLS بحقوق المستدعِي)
+grant select on public.v_daily_sales, public.v_top_items,
+               public.v_peak_hours,  public.v_staff_perf to authenticated;
+
 -- ---------------------------------------------------------------------------
 -- 8) التحديث اللحظي للوحة الطلبات
 -- ---------------------------------------------------------------------------
@@ -587,9 +633,9 @@ create sequence if not exists public.menu_items_new_seq start with 900000;
 
 create or replace function public.admin_save_menu_item(
   p_id         bigint   default null,   -- null = صنف جديد · رقم = تعديل صنف قائم
-  p_ar         text,
+  p_ar         text     default null,   -- اسم الصنف بالعربية (يُفحص داخل الدالة)
   p_it         text     default '',
-  p_category   text,
+  p_category   text     default null,   -- التصنيف (يُفحص داخل الدالة)
   p_sub        text     default null,
   p_price      numeric  default null,   -- سعر مفرد (يُترك فارغًا إن كان هناك خيارات)
   p_price_text text     default null,   -- يُشتق تلقائيًا إن لم يُكتب
@@ -619,7 +665,7 @@ begin
 
   -- كل صنف يحتاج سعرًا: إما سعر مفرد أو قائمة أسعار/تشكيلات
   if coalesce(v_price, 0) = 0 and v_opts is null then
-    raise exception 'أدخل سعرًا للصنف «%' || v_ar || '»';
+    raise exception 'أدخل سعرًا للصنف «%»', v_ar;
   end if;
 
   if v_opts is not null then
@@ -627,12 +673,21 @@ begin
       raise exception 'صيغة الخيارات غير صحيحة';
     end if;
     if exists (select 1 from jsonb_array_elements(v_opts) o
-                where coalesce((o->>'price')::numeric, 0) <= 0) then
+                where case
+                        when coalesce(o->>'price','') ~ '^[0-9]+(\.[0-9]{1,2})?$'
+                        then (o->>'price')::numeric
+                        else 0
+                      end <= 0) then
       raise exception 'كل حجم/تشكيلة يحتاج سعرًا صحيحًا';
     end if;
     v_price := null;                       -- الخيارات تحل محل السعر المفرد
     if v_ptext is null then
-      select 'يبدأ من ' || min((o->>'price')::numeric)::text || ' د.ل'
+      select 'يبدأ من ' ||
+             min(case
+                   when coalesce(o->>'price','') ~ '^[0-9]+(\.[0-9]{1,2})?$'
+                   then (o->>'price')::numeric
+                   else 0
+                 end)::text || ' د.ل'
         into v_ptext
         from jsonb_array_elements(v_opts) o;
     end if;
@@ -670,7 +725,7 @@ begin
     if not found then raise exception 'الصنف غير موجود'; end if;
 
     insert into public.audit_log(actor, action, entity, entity_id, detail)
-    values (auth.uid(), 'menu:update', 'menu_item', v_id::text,
+    values (auth.uid(), 'menu:update', 'menu_item', p_id::text,
             jsonb_build_object('ar', v_ar, 'price_text', v_ptext));
 
     return jsonb_build_object('ok', true, 'created', false, 'id', p_id);
@@ -710,6 +765,17 @@ language sql stable security definer set search_path = public as $$
 $$;
 revoke all on function public.list_menu_items(boolean) from public, anon;
 grant execute on function public.list_menu_items(boolean) to authenticated;
+
+-- حسابات سُجّلت قبل تشغيل المخطط ليس لها صف في profiles — نُكملها الآن
+-- حتى لا يفشل أي استعلام لاحق على الدور.
+insert into public.profiles (id, full_name, phone, role)
+select u.id,
+       coalesce(u.raw_user_meta_data->>'full_name', u.raw_user_meta_data->>'name', ''),
+       coalesce(u.phone, u.raw_user_meta_data->>'phone'),
+       'customer'
+from auth.users u
+where not exists (select 1 from public.profiles p where p.id = u.id)
+on conflict (id) do nothing;
 
 -- ---------------------------------------------------------------------------
 -- 10) تشغيل أولي — احذف علامات التعليق بعد أول تشغيل

@@ -8,8 +8,8 @@
  *  أين تجده: Supabase → Project Settings → API
  * =========================================================================== */
 window.KH_CONFIG = {
-    SUPABASE_URL: '',            // مثال: https://abcdefghij.supabase.co
-    SUPABASE_ANON_KEY: '',       // يبدأ بـ eyJhbGciOi...
+    SUPABASE_URL: 'https://fqrnjnwpnczhnzuebjek.supabase.co',
+    SUPABASE_ANON_KEY: 'sb_publishable_iUewbaEMw5f9hIBkniyHmg_OV7zFk5E',
     WHATSAPP: '218914041333',    // رقم المقهى على واتساب
     CURRENCY: 'د.ل'
 };
