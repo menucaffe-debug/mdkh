@@ -100,7 +100,7 @@
 
                     '<label for="khLoc">الموقع / الموقف <span class="kh-opt">اختياري</span></label>' +
                     '<div class="kh-loc">' +
-                      '<input id="khLoc" type="text" placeholder="مثال: أمام المسجد النور">' +
+                      '<input id="khLoc" type="text" placeholder="">' +
                       '<button type="button" id="khGeo" class="kh-geo">تحديد موقعي</button>' +
                     '</div>' +
 
@@ -111,7 +111,7 @@
                     '</div>' +
 
                     '<label for="khNote">ملاحظة (اختياري)</label>' +
-                    '<textarea id="khNote" placeholder="مثال: بدون سكر، تغليف هدية…"></textarea>' +
+                    '<textarea id="khNote" placeholder="مثال: بدون سكر…"></textarea>' +
 
                     '<div class="kh-msg" id="khMsg"></div>' +
                   '</div>' +
