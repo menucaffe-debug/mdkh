@@ -55,7 +55,7 @@ const ALL=[...HC,...CC,...JU,...TR,...SMSH,...MJ,...FR,...SL,...BF,...EV,...DC];
 
 ### الخطوة 1 — أنشئ المستودع
 1. افتح **https://github.com/new**
-2. الاسم: `kh1` (أو أي اسم تريده في الرابط)
+2. الاسم: `mdkh`
 3. اترك **«Add a README»** غير مُفعّل (الملف موجود عندك)
 4. **Create repository**
 
@@ -93,14 +93,14 @@ git push -u origin main
 4. بعد دقيقة يظهر الرابط: `https://<اسمك>.github.io/<اسم_المستودع>/`
 
 ### الخطوة 4 — حدّث رابط الموقع (مهم إن غيّرت اسم المستودع)
-`index.html` يشير حاليًا إلى:
+`index.html` يشير إلى:
 
 ```
-https://menucaffe-debug.github.io/kh1/
+https://menucaffe-debug.github.io/mdkh/
 ```
 
 في المواضع التالية: `link rel="canonical"` · `og:url` · `og:image` · `twitter:image` · `JSON-LD`
-— استبدلها برابطك الجديد إن نشرت على عنوان آخر.
+— استبدلها إن نشرت على عنوان/مستودع آخر.
 
 ---
 
