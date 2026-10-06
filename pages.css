@@ -52,9 +52,9 @@ button{font-family:inherit}
 .lw-rule{width:120px;height:1px;margin:26px auto 0;background:linear-gradient(90deg,transparent,var(--gold-l),transparent);position:relative}
 .lw-rule::after{content:'';position:absolute;left:50%;top:50%;width:8px;height:8px;transform:translate(-50%,-50%) rotate(45deg);background:linear-gradient(135deg,var(--gold-l),var(--gold));box-shadow:0 0 14px rgba(186,138,72,.6)}
 
-/* بطاقتا الدخول — زجاج أبيض بإطار ذهبي */
-.lw-cards{display:grid;grid-template-columns:1fr;gap:24px;width:100%;max-width:960px;margin:38px auto 0;padding-bottom:60px;flex:1;align-content:center}
-@media(min-width:760px){.lw-cards{grid-template-columns:1fr 1fr;gap:30px}}
+/* بطاقتا الدخول — زجاج أبيض بإطار ذهبي (متجاورتان دائمًا) */
+.lw-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:960px;margin:34px auto 0;padding-bottom:60px;flex:1;align-content:center}
+@media(min-width:760px){.lw-cards{gap:30px}}
 
 .lw-card{
     display:flex;flex-direction:column;align-items:flex-start;
@@ -221,8 +221,20 @@ button{font-family:inherit}
     .cw-img{aspect-ratio:16/9}
 }
 @media(max-width:400px){
-    .lw-t{font-size:1.38rem}
     .cw-price b{font-size:2rem}
+}
+
+/* ===== هاتف: البطاقتان متجاورتان بتنسيق مضغوط ===== */
+@media(max-width:599px){
+    .lw-card{padding:22px 14px 20px;border-radius:18px;align-items:center;text-align:center}
+    .lw-ic{width:46px;height:46px;border-radius:14px;margin-bottom:12px}
+    .lw-ic svg{width:23px;height:23px}
+    .lw-t{font-size:1.1rem;line-height:1.4}
+    .lw-it{font-size:.74rem;letter-spacing:.5px;margin-top:3px}
+    .lw-p{display:none}
+    .lw-meta{margin-top:12px;margin-bottom:18px;padding:5px 11px;font-size:.7rem}
+    .lw-go{margin-top:auto;width:44px;height:44px}
+    .lw-go svg{width:18px;height:18px}
 }
 
 @media(prefers-reduced-motion:reduce){
