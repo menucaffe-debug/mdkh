@@ -99,7 +99,8 @@
 .kh-empty{
   text-align:center;padding:60px 16px;color:#8A8078;font-weight:600;font-size:.92rem;
 }
-.kh-empty .kh-emoji{display:block;font-size:2.4rem;margin-bottom:12px;opacity:.55}
+.kh-empty .kh-emoji{display:block;margin-bottom:12px;opacity:.5}
+.kh-empty .kh-emoji svg{width:2.6rem;height:2.6rem;fill:currentColor;display:block;margin:0 auto}
 
 /* عنصر في السلة */
 .kh-line{
@@ -118,8 +119,10 @@
 .kh-line .kh-pr{font-size:.8rem;color:#7A7168;font-weight:700;margin-top:2px}
 .kh-rm{
   border:0;background:none;color:#C0392B;cursor:pointer;
-  font-size:1.05rem;padding:4px;opacity:.55;transition:.16s;flex-shrink:0;
+  padding:4px;opacity:.55;transition:.16s;flex-shrink:0;
+  display:inline-flex;align-items:center;justify-content:center;
 }
+.kh-rm svg{width:1.15rem;height:1.15rem;fill:currentColor;display:block}
 .kh-rm:hover{opacity:1;transform:scale(1.15)}
 
 /* عدّاد الكمية */
@@ -177,15 +180,13 @@
   padding:9px 4px;font-size:.78rem;font-weight:700;color:#6E6660;
   transition:.16s;display:flex;flex-direction:column;align-items:center;gap:3px;
 }
-.kh-pay label .kh-pe{font-size:1.05rem}
 .kh-pay input{position:absolute;opacity:0;pointer-events:none}
-.kh-pay input:checked + span{}
 .kh-pay label:has(input:checked),
 .kh-pay label.sel{
   border-color:var(--kh-gold);background:#FFF9F1;color:var(--kh-gold-d);
   box-shadow:0 0 0 3px rgba(186,138,72,.12);
 }
-.kh-pay input:focus-visible + .kh-pe{outline:2px solid var(--kh-espresso);outline-offset:3px;border-radius:4px}
+.kh-pay label:has(input:focus-visible){outline:2px solid var(--kh-espresso);outline-offset:3px}
 
 /* مؤشر الإرسال */
 .kh-spin{

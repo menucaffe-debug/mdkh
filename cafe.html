@@ -296,11 +296,11 @@ body.modal-locked{position:fixed;left:0;right:0;width:100%}
             .mft-phone{font-size:1.5rem}
             .fab-wa{right:calc(22px + env(safe-area-inset-right,0px))}
         }
-        .kh-home{display:inline-flex;align-items:center;gap:8px;margin-top:26px;padding:11px 24px;border:1px solid rgba(255,255,255,.45);border-radius:999px;color:#fff;text-decoration:none;font-family:'Cairo',sans-serif;font-size:.82rem;font-weight:700;background:rgba(255,255,255,.10);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:background .25s,color .25s,transform .25s;animation:khFade .8s ease both;animation-delay:.85s}
+        .kh-home{display:inline-flex;align-items:center;justify-content:center;margin-top:26px;width:46px;height:46px;border:1px solid rgba(255,255,255,.45);border-radius:50%;color:#fff;text-decoration:none;background:rgba(255,255,255,.10);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:background .25s,color .25s,transform .25s;animation:khFade .8s ease both;animation-delay:.85s}
         .kh-home:hover{background:#fff;color:var(--espresso);border-color:#fff;transform:translateY(-3px)}
-        .kh-home svg{width:15px;height:15px;fill:currentColor;flex-shrink:0}
+        .kh-home svg{width:19px;height:19px;fill:currentColor;flex-shrink:0}
         @keyframes khFade{from{opacity:0}to{opacity:1}}
-        @media(max-width:480px){.kh-home{margin-top:20px;padding:10px 18px;font-size:.78rem}}
+        @media(max-width:480px){.kh-home{margin-top:20px;width:42px;height:42px}}
     </style>
     <link rel="stylesheet" href="cart.css">
     <script defer src="config.js"></script>
@@ -316,9 +316,8 @@ body.modal-locked{position:fixed;left:0;right:0;width:100%}
         <h1 class="mg">KH</h1>
         <div class="itd"></div>
         <div class="hero-tagline">IL VOSTRO CAFFE & DOLCE</div>
-        <a class="kh-home" href="index.html">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 12h3v8h6v-6h2v6h6v-8h3z"/></svg>
-            <span>الصفحة الرئيسية</span>
+        <a class="kh-home" href="index.html" aria-label="رجوع إلى الصفحة الرئيسية">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
         </a>
     </div>
     <div class="hero-scroll">
@@ -329,7 +328,7 @@ body.modal-locked{position:fixed;left:0;right:0;width:100%}
 
 <div style="position:relative;z-index:10">
 <nav class="fbar" aria-label="تصنيفات المنيو"><div class="fc" id="fc">
-<div class="kh-search"><input id="khSearch" type="search" autocomplete="off" placeholder="🔍 ابحث في المنيو…" aria-label="بحث في المنيو"></div>
+<div class="kh-search"><input id="khSearch" type="search" autocomplete="off" placeholder="ابحث في المنيو…" aria-label="بحث في المنيو"></div>
 <button class="fb on" onclick="fD('all',this)"><span class="ar">الكل</span><span class="it">Tutti</span></button>
 <button class="fb" onclick="fD('hotcoffee',this)"><span class="ar">قهوة وشاي ساخن</span><span class="it">Caffè e Tè Caldo</span></button>
 <button class="fb" onclick="fD('coldcoffee',this)"><span class="ar">قهوة وشاي بارد</span><span class="it">Caffè e Tè Freddo</span></button>
@@ -411,7 +410,7 @@ const cv=document.getElementById('bg-canvas'),cx=cv.getContext('2d');let pts=[],
 function rsC(){cv.width=innerWidth;cv.height=innerHeight}
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
 document.addEventListener('touchmove',e=>{if(e.touches[0]){mx=e.touches[0].clientX;my=e.touches[0].clientY}},{passive:true});
-class P{constructor(){this.rs(true)}rs(i){this.x=Math.random()*cv.width;this.y=i?Math.random()*cv.height:cv.height+Math.random()*60;this.rd=Math.random()*40+12;this.bsy=Math.random()*.3+.12;this.sy=this.bsy;this.sx=(Math.random()-.5)*.15;this.o=Math.random()*.04+.01;this.bo=this.o;const c=['160,120,69','200,180,160','198,156,109'];this.c=c[Math.floor(Math.random()*c.length)];this.ps=Math.random()*.015+.004;this.po=Math.random()*Math.PI*2;this.t=0}u(){this.t+=this.ps;const dx=mx-this.x,dy=my-this.y,d=Math.sqrt(dx*dx+dy*dy);if(d<180){const f=(180-d)/180*.12;this.x-=dx*f*.008;this.y-=dy*f*.008}this.y-=this.sy;this.x+=this.sx+Math.sin(this.t+this.po)*.1;this.o=this.bo+Math.sin(this.t*2+this.po)*.01;if(this.y<-this.rd*2)this.rs(false)}d(){const r=Math.max(.1,this.rd);cx.beginPath();cx.arc(this.x,this.y,r,0,Math.PI*2);cx.fillStyle=`rgba(${this.c},${Math.max(0,this.o)})`;cx.fill()}}
+class P{constructor(){this.rs(true)}rs(i){this.x=Math.random()*cv.width;this.y=i?Math.random()*cv.height:cv.height+Math.random()*60;this.rd=Math.random()*40+12;this.bsy=Math.random()*.3+.12;this.sy=this.bsy;this.sx=(Math.random()-.5)*.15;this.o=Math.random()*.04+.01;this.bo=this.o;const c=['186,138,72','200,190,175','216,176,122'];this.c=c[Math.floor(Math.random()*c.length)];this.ps=Math.random()*.015+.004;this.po=Math.random()*Math.PI*2;this.t=0}u(){this.t+=this.ps;const dx=mx-this.x,dy=my-this.y,d=Math.sqrt(dx*dx+dy*dy);if(d<180){const f=(180-d)/180*.12;this.x-=dx*f*.008;this.y-=dy*f*.008}this.y-=this.sy;this.x+=this.sx+Math.sin(this.t+this.po)*.1;this.o=this.bo+Math.sin(this.t*2+this.po)*.01;if(this.y<-this.rd*2)this.rs(false)}d(){const r=Math.max(.1,this.rd);cx.beginPath();cx.arc(this.x,this.y,r,0,Math.PI*2);cx.fillStyle=`rgba(${this.c},${Math.max(0,this.o)})`;cx.fill()}}
 function iP(){pts=[];const n=Math.min(Math.floor(cv.width/30),40);for(let i=0;i<n;i++)pts.push(new P())}
 let rafId = null;
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -932,7 +931,7 @@ function openModal(item) {
     if (item.price) shownPrice = item.price;
     else if (item.prices) shownPrice = item.prices.map(p => `${p.label}: ${p.price}`).join('  |  ');
     else if (item.variants) shownPrice = item.variants.map(v => `${v.name}: ${v.price}`).join('  |  ');
-    const waMsg = `مرحباً KH ☕\nأرغب بطلب الصنف التالي:\n• ${item.ar} — ${item.it}\n• السعر: ${shownPrice}`;
+    const waMsg = `مرحباً KH\nأرغب بطلب الصنف التالي:\n• ${item.ar} — ${item.it}\n• السعر: ${shownPrice}`;
     document.getElementById('waOrder').href = 'https://api.whatsapp.com/send?phone=' + ((window.KH_CONFIG && window.KH_CONFIG.WHATSAPP) || '218916666009') + '&text=' + encodeURIComponent(waMsg);
 
     // Move focus into the dialog for keyboard / screen-reader users
